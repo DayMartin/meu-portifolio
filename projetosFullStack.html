@@ -1,70 +1,77 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <!--=============== FAVICON ===============-->
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
-
+    <link href="assets/img/favicon.png" rel="shortcut icon" type="image/x-icon" />
     <!--=============== REMIXICONS ===============-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
     <!--=============== SWIPER CSS ===============-->
-    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
-
+    <link href="/assets/css/swiper-bundle.min.css" rel="stylesheet" />
     <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="assets/css/styles.css">
-
+    <link href="assets/css/styles.css" rel="stylesheet" />
     <title>Projetos</title>
+    <style>
+        .projects__description {
+            margin-top: .75rem;
+            line-height: 1.6;
+            font-size: .95rem;
+        }
+
+        .projects__details {
+            margin: .75rem 0 1.25rem 1.25rem;
+            display: grid;
+            gap: .35rem;
+            line-height: 1.5;
+        }
+
+        .projects__details li {
+            list-style: disc;
+        }
+    </style>
 </head>
 
 <body>
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
         <nav class="nav container">
-            <a href="#" class="nav__logo">Dinah Martins </a>
+            <a class="nav__logo" href="#">Dinah Martins </a>
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list grid">
-
                     <li class="nav__item">
-                        <a href="/index.html#home" class="nav__link active-link">
+                        <a class="nav__link active-link" href="/index.html#home">
                             <i class="ri-home-5-line"></i>Inicio
                         </a>
                     </li>
-
                     <li class="nav__item">
-                        <a href="/index.html#skills" class="nav__link">
+                        <a class="nav__link" href="/index.html#skills">
                             <i class="ri-trophy-line"></i> Habilidades
                         </a>
-
                     </li>
                     <li class="nav__item">
-                        <a href="/index.html#qualification" class="nav__link"><i class="ri-book-open-line"></i>Qualificações
+                        <a class="nav__link" href="/index.html#qualification"><i
+                                class="ri-book-open-line"></i>Qualificações
 
                         </a>
-
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="/index.html#projects" class="nav__link"><i class="ri-image-line"></i>Projetos
-
-                        </a>
-
                     </li>
                     <li class="nav__item">
-                        <a href="/index.html#certificados" class="nav__link"><i class="ri-briefcase-line"></i>Certificados
+                        <a class="nav__link" href="/index.html#projects"><i class="ri-image-line"></i>Projetos
 
                         </a>
-
                     </li>
-
                     <li class="nav__item">
-                        <a href="/index.html#contact" class="nav__link"><i class="ri-chat-3-line"></i>Contato
+                        <a class="nav__link" href="/index.html#certificados"><i
+                                class="ri-briefcase-line"></i>Certificados
 
                         </a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="/index.html#contact"><i class="ri-chat-3-line"></i>Contato
 
+                        </a>
                     </li>
                 </ul>
                 <!-- Close button -->
@@ -75,7 +82,6 @@
             <div class="nav__buttons">
                 <!-- Theme change button -->
                 <i class="ri-moon-line change-theme" id="theme-button"></i>
-
                 <!-- Toggle button -->
                 <div class="nav__toggle" id="nav-toggle">
                     <i class="ri-menu-4-line"></i>
@@ -83,167 +89,403 @@
             </div>
         </nav>
     </header>
-
     <!--==================== MAIN ====================-->
     <main class="main">
-        
         <!--==================== PROJECTS ====================-->
         <section class="projects section" id="projects">
             <h2 class="section__title">Projetos</h2>
-            <span class="section__subtitle">Meus projetos recentes FullStack</span>
-
+            <span class="section__subtitle">Projetos full stack, automações e estudos aplicados</span>
             <div class="container section__border">
                 <div class="projects__container swiper">
-
+                    <div class="projects__container swiper">
                         <!--==================== PROJECTS 1 ====================-->
                         <div class="projects__content swiper-slide">
-                            <div>
-                                <span class="projects__subtitle">React, JavaScript, NodeJS, MongoDB, Axios </span>
-                                <h1 class="projects__title">Projeto .OS</h1>
-                                <p class="projects__title">Projeto completo FullStack para gerencimaneto de ordem de serviços, usuários e passar ordens por setores </p>
-
-                                <a href="https://github.com/DayMartin/conecta/tree/main" class="projects__button">
-                                    Código GitHub <i class="ri-arrow-right-line"></i>
-                                </a>
+                            <div><span class="projects__subtitle">Bubble • Supabase • N8N</span>
+                                <h1 class="projects__title">Sistema de gestão de estoque</h1>
+                                <p class="projects__description">Aplicação criada para controlar entrada e saída de
+                                    produtos, organizar movimentações e reduzir o controle manual de estoque.</p>
+                                <ul class="projects__details">
+                                    <li>Cadastro e consulta de itens em estoque.</li>
+                                    <li>Registro de movimentações de entrada e saída.</li>
+                                    <li>Automação de fluxos operacionais com N8N e persistência de dados no Supabase.
+                                    </li>
+                                </ul>
                             </div>
-                        </br>
-                            <img src="/assets/img/full/OS.png" alt="projects image" class="projects__img2" style="width: 1000px;">
+
+                            <img alt="projects image" class="projects__img2" src="/assets/img/full/softwareestoque.png"
+                                style="width: 1000px;" />
+                            <img alt="projects image" class="projects__img2" src="/assets/img/full/softwareestoque2.png"
+                                style="width: 1000px;" />
                         </div>
-
-                            <!--==================== PROJECTS 7 ====================-->
-                            <div class="projects__content swiper-slide">
-                                <div>
-                                    <span class="projects__subtitle"> Java </span>
-                                    <h1 class="projects__title">Sistema para ordem de serviços</h1>
-
-                                    <a href="https://github.com/DayMartin/OrdemServicoJava" class="projects__button">
-                                        Código GitHub <i class="ri-arrow-right-line"></i>
-                                    </a>
-                                </div>
-                            </br>
-                                <img src="/assets/img/osJava.png" alt="projects image" class="projects__img" style="width: 1000px;">
-                            </div>
-                                                        <!--==================== PROJECTS 7 ====================-->
-                            <div class="projects__content swiper-slide">
-                                <div>
-                                    <span class="projects__subtitle"> Python </span>
-                                    <h1 class="projects__title"> Cadastro de Produtos, Clientes e Fornecedores, Vendas, Contas a pagar e receber </h1>
-
-                                    <a href="https://github.com/DayMartin/EstoqueVenda/tree/main" class="projects__button">
-                                        Código GitHub <i class="ri-arrow-right-line"></i>
-                                    </a>
-                                </div>
-                            </br>
-                                <img src="/assets/img/full/estoque.png" alt="projects image" class="projects__img" style="width: 1000px;">
+                        <!--==================== PROJECTS 1 ====================-->
+                        <div class="projects__content swiper-slide">
+                            <div><span class="projects__subtitle">Bubble • Supabase • N8N</span>
+                                <h1 class="projects__title">Plataforma para locação de barcos</h1>
+                                <p class="projects__description">Sistema para centralizar a gestão de barcos disponíveis
+                                    para locação, reservas e informações operacionais do serviço.</p>
+                                <ul class="projects__details">
+                                    <li>Cadastro de embarcações e dados da locação.</li>
+                                    <li>Organização do fluxo de reserva para facilitar o atendimento ao cliente.</li>
+                                    <li>Integração entre interface, banco de dados e automações.</li>
+                                </ul>
                             </div>
 
-                    <!-- Swiper pagination -->
-                    <div class="swiper-pagination"></div>
+                            <img alt="projects image" class="projects__img2" src="/assets/img/full/softwarebarco.png"
+                                style="width: 1000px;" />
+                            <img alt="projects image" class="projects__img2" src="/assets/img/full/barco3.png"
+                                style="width: 1000px;" />
+                        </div>
+                        <!--==================== PROJECTS 1 ====================-->
+                        <div class="projects__content swiper-slide">
+                            <div><span class="projects__subtitle">Next.js • Nest.js • Golang • Kafka • Google Maps •
+                                    WebSocket • MongoDB • Docker</span>
+                                <h1 class="projects__title">Sistema de rastreamento de veículos em tempo real</h1>
+                                <p class="projects__description">Plataforma full stack para acompanhar veículos no mapa
+                                    em tempo real, simulando envio de posições e atualização instantânea da interface.
+                                </p>
+                                <ul class="projects__details">
+                                    <li>Comunicação em tempo real com WebSocket.</li>
+                                    <li>Processamento assíncrono de eventos com Apache Kafka.</li>
+                                    <li>Visualização de rotas e localização usando Google Maps.</li>
+                                    <li>Arquitetura conteinerizada com serviços separados.</li>
+                                </ul>
+                                <a class="projects__button" href="https://github.com/DayMartin/TrajetoRotas/">Ver código
+                                    no GitHub <i class="ri-arrow-right-line"></i></a>
+                            </div>
+
+                            <img alt="projects image" class="projects__img2"
+                                src="/assets/img/full/geraciamentoRotas.png" style="width: 1000px;" />
+                        </div>
+                        <!--==================== PROJECTS 1 ====================-->
+                        <div class="projects__content swiper-slide">
+                            <div><span class="projects__subtitle">TypeScript • Node.js • Express • JWT • React • Axios •
+                                    MySQL</span>
+                                <h1 class="projects__title">Sistema financeiro e comercial</h1>
+                                <p class="projects__description">Aplicação full stack para apoiar a rotina
+                                    administrativa de compra, venda, estoque e controle financeiro.</p>
+                                <ul class="projects__details">
+                                    <li>Gestão de compras, vendas e produtos em estoque.</li>
+                                    <li>Contas a pagar, contas a receber e relatórios gerenciais.</li>
+                                    <li>Controle de comissões, histórico de compras do cliente e autenticação com JWT.
+                                    </li>
+                                </ul>
+                                <a class="projects__button" href="https://github.com/DayMartin/FinanceiroNode/">Ver
+                                    código no GitHub <i class="ri-arrow-right-line"></i></a>
+                            </div>
+
+                            <img alt="projects image" class="projects__img2" src="/assets/img/full/est1.png"
+                                style="width: 1000px;" />
+                        </div>
+                        <!--==================== PROJECTS 1 ====================-->
+                        <div class="projects__content swiper-slide">
+                            <div><span class="projects__subtitle">React • Next.js • Nest.js • Node.js • MongoDB •
+                                    Docker</span>
+                                <h1 class="projects__title">Sistema de gerenciamento de eventos musicais</h1>
+                                <p class="projects__description">Projeto full stack para organizar eventos, músicos e
+                                    instrumentos, com backend, frontend e banco rodando em containers.</p>
+                                <ul class="projects__details">
+                                    <li>Cadastro e gestão de eventos.</li>
+                                    <li>Vinculação de músicos, instrumentos e informações operacionais.</li>
+                                    <li>Ambiente Dockerizado para facilitar execução e manutenção do projeto.</li>
+                                </ul>
+                                <a class="projects__button" href="https://github.com/DayMartin/ArthWind">Ver código no
+                                    GitHub <i class="ri-arrow-right-line"></i></a>
+                            </div>
+
+                            <img alt="projects image" class="projects__img2" src="/assets/img/full/banda2.png"
+                                style="width: 1000px;" />
+                        </div>
+                        <!--==================== PROJECTS 1 ====================-->
+                        <!--==================== PROJECTS 1 ====================-->
+                        <div class="projects__content swiper-slide">
+                            <div><span class="projects__subtitle">Python • Flask • SQLAlchemy • Marshmallow • GeoPy •
+                                    JWT • Angular • MySQL</span>
+                                <h1 class="projects__title">Sistema de rotas e coordenadas em mapa</h1>
+                                <p class="projects__description">Aplicação para cadastrar pontos geográficos, calcular
+                                    distâncias entre coordenadas e visualizar informações no mapa.</p>
+                                <ul class="projects__details">
+                                    <li>API em Flask com autenticação JWT e modelagem usando SQLAlchemy.</li>
+                                    <li>Validação e serialização de dados com Marshmallow.</li>
+                                    <li>Uso de GeoPy para cálculo e manipulação de coordenadas.</li>
+                                </ul>
+                                <a class="projects__button" href="https://github.com/DayMartin/RotaMapeada">Ver código
+                                    no GitHub <i class="ri-arrow-right-line"></i></a>
+                            </div>
+
+                            <img alt="projects image" class="projects__img2" src="/assets/img/full/maps.png"
+                                style="width: 1000px;" />
+                        </div>
+                        <!--==================== PROJECTS 1 ====================-->
+                        <div class="projects__content swiper-slide">
+                            <div><span class="projects__subtitle">Python • Tkinter</span>
+                                <h1 class="projects__title">Ferramenta para limpeza de planilhas Excel</h1>
+                                <p class="projects__description">Aplicação desktop criada para automatizar a limpeza de
+                                    planilhas, mantendo apenas as colunas necessárias para o usuário.</p>
+                                <ul class="projects__details">
+                                    <li>Interface simples para seleção e tratamento de arquivos.</li>
+                                    <li>Redução de trabalho manual em planilhas repetitivas.</li>
+                                    <li>Foco em produtividade e padronização de dados.</li>
+                                </ul>
+                                <a class="projects__button" href="https://github.com/DayMartin/limpezaExcel">Ver código
+                                    no GitHub <i class="ri-arrow-right-line"></i></a>
+                            </div>
+
+                            <img alt="projects image" class="projects__img2" src="/assets/img/full/limpezaExcel.png"
+                                style="width: 1000px;" />
+                        </div>
+                        <!--==================== PROJECTS  ====================-->
+                        <div class="projects__content swiper-slide">
+                            <div><span class="projects__subtitle">JavaScript • Node.js • Express • MongoDB</span>
+                                <h1 class="projects__title">API REST para ordens de serviço</h1>
+                                <p class="projects__description">Backend desenvolvido do zero para gerenciar usuários e
+                                    ordens de serviço, servindo como base para aplicações operacionais.</p>
+                                <ul class="projects__details">
+                                    <li>Criação de endpoints REST para cadastro, consulta e manipulação de dados.</li>
+                                    <li>Modelagem de usuários e ordens de serviço no MongoDB.</li>
+                                    <li>Estrutura preparada para integração com frontend.</li>
+                                </ul>
+                                <a class="projects__button"
+                                    href="https://github.com/DayMartin/conecta/tree/main/back">Ver código no GitHub <i
+                                        class="ri-arrow-right-line"></i></a>
+                            </div>
+
+                            <img alt="projects image" class="projects__img2" src="/assets/img/back/backend.png"
+                                style="width: 900px;" />
+                        </div>
+                        <!--==================== PROJECTS 1 ====================-->
+                        <div class="projects__content swiper-slide">
+                            <div><span class="projects__subtitle">JavaScript • MongoDB • GraphQL • Angular</span>
+                                <h1 class="projects__title">Controle de estoque com GraphQL</h1>
+                                <p class="projects__description">Sistema para controle de estoque com frontend em
+                                    Angular e camada de dados usando GraphQL.</p>
+                                <ul class="projects__details">
+                                    <li>Cadastro e consulta de produtos.</li>
+                                    <li>Operações de estoque estruturadas via GraphQL.</li>
+                                    <li>Integração entre frontend, API e banco MongoDB.</li>
+                                </ul>
+                            </div>
+
+                            <img alt="projects image" class="projects__img2" src="/assets/img/full/controleS.png"
+                                style="width: 900px;" />
+                        </div>
+                        <!--==================== PROJECTS 1 ====================-->
+                        <div class="projects__content swiper-slide">
+                            <div><span class="projects__subtitle">React • JavaScript • Node.js • MongoDB • Axios</span>
+                                <h1 class="projects__title">Sistema full stack de ordens de serviço</h1>
+                                <p class="projects__description">Aplicação para gerenciar ordens de serviço, usuários e
+                                    o encaminhamento de demandas entre setores.</p>
+                                <ul class="projects__details">
+                                    <li>Abertura e acompanhamento de ordens de serviço.</li>
+                                    <li>Organização de usuários e setores responsáveis.</li>
+                                    <li>Integração do frontend React com API Node.js.</li>
+                                </ul>
+                                <a class="projects__button" href="https://github.com/DayMartin/conecta/tree/main">Ver
+                                    código no GitHub <i class="ri-arrow-right-line"></i></a>
+                            </div>
+
+                            <img alt="projects image" class="projects__img2" src="/assets/img/full/OS.png"
+                                style="width: 1000px;" />
+                        </div>
+                        <!--==================== PROJECTS 7 ====================-->
+                        <div class="projects__content swiper-slide">
+                            <div><span class="projects__subtitle">Java</span>
+                                <h1 class="projects__title">Sistema de ordens de serviço em Java</h1>
+                                <p class="projects__description">Projeto desenvolvido para praticar estruturação de
+                                    sistemas administrativos em Java, com foco no fluxo de abertura e controle de ordens
+                                    de serviço.</p>
+                                <ul class="projects__details">
+                                    <li>Cadastro e organização de solicitações.</li>
+                                    <li>Controle básico do ciclo de uma ordem de serviço.</li>
+                                    <li>Aplicação dos fundamentos de programação orientada a objetos.</li>
+                                </ul>
+                                <a class="projects__button" href="https://github.com/DayMartin/OrdemServicoJava">Ver
+                                    código no GitHub <i class="ri-arrow-right-line"></i></a>
+                            </div>
+
+                            <img alt="projects image" class="projects__img" src="/assets/img/osJava.png"
+                                style="width: 1000px;" />
+                        </div>
+                        <div class="projects__content swiper-slide">
+                            <div><span class="projects__subtitle">Node.js • Express • SOAP • Axios • JSON • XML</span>
+                                <h1 class="projects__title">Integração fiscal para emissão de notas</h1>
+                                <p class="projects__description">Funcionalidade criada em sistema legado para permitir
+                                    emissão de notas fiscais diretamente pela integração com a prefeitura.</p>
+                                <ul class="projects__details">
+                                    <li>Integração com serviço SOAP e manipulação de XML.</li>
+                                    <li>Conversão e tratamento de dados entre JSON, XML e API interna.</li>
+                                    <li>Projeto implantado em ambiente empresarial na Tizza Tecnologia.</li>
+                                </ul>
+                            </div>
+                            <img alt="projects image" class="projects__img2" src="/assets/img/back/apifinanceiro.png"
+                                style="width: 700px;" />
+                        </div>
+                        <div class="projects__container swiper">
+                            <!--==================== PROJECTS 2 ====================-->
+                            <div class="projects__content swiper-slide">
+                                <div><span class="projects__subtitle">Vue.js • API IBGE</span>
+                                    <h1 class="projects__title">Consulta de localidades com API pública</h1>
+                                    <p class="projects__description">Frontend criado para consumir a API do IBGE e
+                                        listar localidades, praticando integração com serviço externo e manipulação de
+                                        dados na interface.</p>
+                                    <ul class="projects__details">
+                                        <li>Consumo de API pública.</li>
+                                        <li>Renderização de dados no frontend.</li>
+                                        <li>Organização de componentes e estados em Vue.js.</li>
+                                    </ul>
+                                    <a class="projects__button"
+                                        href="https://github.com/DayMartin/chapeu__seletor/tree/master">Ver código no
+                                        GitHub <i class="ri-arrow-right-line"></i></a>
+                                </div>
+
+                                <img alt="projects image" class="projects__img" src="/assets/img/chapeu_seletor.png"
+                                    style="width: 600px" />
+                            </div>
+                            <!--==================== PROJECTS 1 ====================-->
+                            <div class="projects__content swiper-slide">
+                                <div><span class="projects__subtitle">Python • MySQL</span>
+                                    <h1 class="projects__title">Sistema de cadastro de reservas de veículos</h1>
+                                    <p class="projects__description">Aplicação básica para registrar reservas de carros,
+                                        clientes e informações de locação.</p>
+                                    <ul class="projects__details">
+                                        <li>Cadastro e consulta de reservas.</li>
+                                        <li>Persistência de dados em MySQL.</li>
+                                        <li>Projeto voltado para fundamentos de sistemas administrativos.</li>
+                                    </ul>
+                                    <a class="projects__button" href="https://github.com/DayMartin/centrallocs">Ver
+                                        código no GitHub <i class="ri-arrow-right-line"></i></a>
+                                </div>
+
+                                <img alt="projects image" class="projects__img2" src="/assets/img/aba_cadastro.png"
+                                    style="width: 700px;" />
+                            </div>
+                            <!--==================== PROJECTS 1 ====================-->
+                            <div class="projects__content swiper-slide">
+                                <div><span class="projects__subtitle">Python • Scikit-learn • Regressão Linear • MSE •
+                                        MAE • R²-score</span>
+                                    <h1 class="projects__title">Modelo de previsão de emissões de CO₂</h1>
+                                    <p class="projects__description">Projeto de machine learning para treinar e avaliar
+                                        um modelo de regressão linear capaz de prever emissões de CO₂ com base em
+                                        características do veículo.</p>
+                                    <ul class="projects__details">
+                                        <li>Treinamento de modelo supervisionado com Scikit-learn.</li>
+                                        <li>Avaliação usando métricas como MSE, MAE e R²-score.</li>
+                                        <li>Análise da relação entre tamanho do motor e emissão de poluentes.</li>
+                                    </ul>
+                                    <a class="projects__button" href="https://github.com/DayMartin/RegressaoLinear">Ver
+                                        código no GitHub <i class="ri-arrow-right-line"></i></a>
+                                </div>
+                                <div>
+                                    <br />
+                                </div>
+                                <a ;="" class="projects__button" href="https://github.com/DayMartin/RegressaoLinear"
+                                    style="color: blue">
+                                    Código no Git<i class="ri-arrow-right-line"></i>
+                                </a>
+                                <img alt="projects image" class="projects__img2" src="/assets/img/Ia/Treinamento.png"
+                                    style="width: 960px;" />
+                            </div>
+                            <div class="projects__content swiper-slide">
+                                <div><span class="projects__subtitle">Python • Scikit-learn • NumPy • Pandas •
+                                        Matplotlib • Árvore de Decisão</span>
+                                    <h1 class="projects__title">Modelo experimental para classificação de Covid-19</h1>
+                                    <p class="projects__description">Estudo de machine learning usando árvore de decisão
+                                        para classificar a possibilidade de Covid-19 a partir de exames laboratoriais
+                                        disponíveis em dataset do Hospital Einstein.</p>
+                                    <ul class="projects__details">
+                                        <li>Tratamento e análise exploratória de dados com Pandas e NumPy.</li>
+                                        <li>Treinamento de modelo de classificação com Scikit-learn.</li>
+                                        <li>Projeto acadêmico, sem finalidade clínica ou uso em produção.</li>
+                                    </ul>
+                                    <a class="projects__button" href="https://github.com/DayMartin/ArvoreDecisao">Ver
+                                        código no GitHub <i class="ri-arrow-right-line"></i></a>
+                                </div>
+                                <!-- Swiper pagination -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-
-
         <!--==================== CONTACT ====================-->
         <section class="contact section" id="contact">
             <h2 class="section__title">Contate-me</h2>
             <span class="section__subtitle">Entrar em contato</span>
-
             <div class="contact__container container grid section__border">
                 <div class="contact__content">
                     <h3 class="contact__title">
                         <i class="ri-chat-3-line"> Fale comigo </i>
                     </h3>
-
                     <div class="contact__info">
                         <div class="contact__data">
                             <span class="contact__data-title">Email</span>
                             <span class="contact__data-info">negociosdinah@gmail.com</span>
                         </div>
-
                         <div class="contact__data">
                             <span class="contact__data-title">Whatsapp</span>
                             <span class="contact__data-info">+55 11 991745323</span>
                             <!-- Insert a real number plus contry code-->
-                            <a href="https://wa.me/+5511991745323" class="contact__button">
+                            <a class="contact__button" href="https://wa.me/+5511991745323">
                                 Me escreva <i class="ri-arrow-right-line"></i>
                             </a>
                         </div>
-
                         <div class="contact__data">
                             <span class="contact__data-title">Linkedin</span>
                             <span class="contact__data-info">@dinahmartins</span>
                             <!-- Insert your brand name or profile-->
-                            <a href="https://www.linkedin.com/in/dinah-martins-8334b1199/" class="contact__button"
+                            <a class="contact__button" href="https://www.linkedin.com/in/dinah-martins-8334b1199/"
                                 target="_blank">
                                 Me escreva <i class="ri-arrow-right-line"></i>
                             </a>
                         </div>
-
                     </div>
                 </div>
             </div>
         </section>
     </main>
-
     <!--==================== FOOTER ====================-->
     <footer class="footer">
         <div class="footer__container container">
             <h1 class="footer__title">Dinah Martins</h1>
             <p> Front-end Developer || Back-end Developer || </p>
-
             <ul class="footer__list">
                 <li>
-                    <a href="#home" class="footer__link">Inicio</a>
+                    <a class="footer__link" href="#home">Inicio</a>
                 </li>
-
                 <li>
-                    <a href="#skills" class="footer__link">Habilidades</a>
+                    <a class="footer__link" href="#skills">Habilidades</a>
                 </li>
-
                 <li>
-                    <a href="#projects" class="footer__link">Projetos</a>
+                    <a class="footer__link" href="#projects">Projetos</a>
                 </li>
-
             </ul>
-
             <ul class="footer__social">
-                <a href="https://www.linkedin.com/in/dinah-martins-8334b1199/" target="_blank"
-                    class="footer__social-link">
+                <a class="footer__social-link" href="https://www.linkedin.com/in/dinah-martins-8334b1199/"
+                    target="_blank">
                     <i class="ri-linkedin-box-line"></i>
                 </a>
-
-                <a href="https://github.com/DayMartin" target="_blank" class="footer__social-link">
+                <a class="footer__social-link" href="https://github.com/DayMartin" target="_blank">
                     <i class="ri-github-line"></i>
                 </a>
-
-                <a href="https://dribbble.com/" target="_blank" class="footer__social-link">
+                <a class="footer__social-link" href="https://dribbble.com/" target="_blank">
                     <i class="ri-dribbble-line"></i>
                 </a>
             </ul>
-
             <span class="footer__copy">
-                &#169; 2024 - Todos os direitos reservados
+                © 2024 Todos os direitos reservados
             </span>
-
         </div>
     </footer>
-
-
     <!--========== SCROLL UP ==========-->
-    <a href="#" class="scrollup" id="scroll-up">
+    <a class="scrollup" href="#" id="scroll-up">
         <i class="ri-arrow-up-line"></i>
     </a>
-
     <!--=============== SCROLLREVEAL ===============-->
     <script src="/assets/js/scrollreveal.min.js"></script>
-
     <!--=============== SWIPER JS ===============-->
     <script src="assets/js/swiper-bundle.min.js"></script>
-
     <!--=============== EMAIL JS ===============-->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" type="text/javascript"></script>
     <!--=============== MAIN JS ===============-->
     <script src="/assets/js/main.js"></script>
 </body>

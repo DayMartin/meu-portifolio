@@ -2,84 +2,55 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Detalhamento técnico de interfaces de usuário e portais corporativos desenvolvidos por Dinah Martins.">
+    
     <!--=============== FAVICON ===============-->
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
-
+    <link href="assets/img/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    
     <!--=============== REMIXICONS ===============-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-
-    <!--=============== SWIPER CSS ===============-->
-    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+    
     <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="assets/css/styles.css">
-
-    <title>Projetos</title>
+    <link href="assets/css/styles.css?v=1.2" rel="stylesheet" />
+    
+    <title>Projetos Frontend & Portais | Dinah Martins</title>
 </head>
 
 <body>
+    <script>
+        // Apply theme immediately to prevent white flash
+        if (localStorage.getItem('selected-theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">Dinah Martins </a>
+        <nav class="nav">
+            <a href="index.html#home" class="nav__logo">
+                <span class="nav__logo-dot"></span> Dinah Martins
+            </a>
             <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list grid">
-
-                    <li class="nav__item">
-                        <a href="/index.html#home" class="nav__link active-link">
-                            <i class="ri-home-5-line"></i>Inicio
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="/index.html#skills" class="nav__link">
-                            <i class="ri-trophy-line"></i> Habilidades
-                        </a>
-
-                    </li>
-                    <li class="nav__item">
-                        <a href="/index.html#qualification" class="nav__link"><i
-                                class="ri-book-open-line"></i>Qualificações
-
-                        </a>
-
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="/index.html#projects" class="nav__link"><i class="ri-image-line"></i>Projetos
-
-                        </a>
-
-                    </li>
-                    <li class="nav__item">
-                        <a href="/index.html#certificados" class="nav__link"><i
-                                class="ri-briefcase-line"></i>Certificados
-
-                        </a>
-
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="/index.html#contact" class="nav__link"><i class="ri-chat-3-line"></i>Contato
-
-                        </a>
-
-                    </li>
+                <ul class="nav__list">
+                    <li><a class="nav__link" href="index.html#home" onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Início</a></li>
+                    <li><a class="nav__link" href="index.html#about" onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Trajetória</a></li>
+                    <li><a class="nav__link" href="index.html#specialties" onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Especialidades</a></li>
+                    <li><a class="nav__link" href="index.html#dindom" onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Case Destaque</a></li>
+                    <li><a class="nav__link active-link" href="#projects" onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Projetos</a></li>
+                    <li><a class="nav__link" href="index.html#certifications" onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Certificações</a></li>
+                    <li><a class="nav__link" href="index.html#contact" onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Contato</a></li>
                 </ul>
-                <!-- Close button -->
-                <div class="nav__close" id="nav-close">
+                <div class="nav__close" id="nav-close" onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">
                     <i class="ri-close-line"></i>
                 </div>
             </div>
             <div class="nav__buttons">
+                <!-- Translation button -->
+                <i class="ri-global-line change-theme" id="lang-button" title="Change to English" onclick="const nextLang = localStorage.getItem('selected-lang') === 'en' ? 'pt' : 'en'; applyLanguage(nextLang)"></i>
                 <!-- Theme change button -->
-                <i class="ri-moon-line change-theme" id="theme-button"></i>
-
-                <!-- Toggle button -->
-                <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-moon-line change-theme" id="theme-button" onclick="document.body.classList.toggle('dark-theme'); if(this.classList.contains('ri-moon-line')){ this.classList.replace('ri-moon-line','ri-sun-line'); } else { this.classList.replace('ri-sun-line','ri-moon-line'); }; localStorage.setItem('selected-theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light'); localStorage.setItem('selected-icon', this.classList.contains('ri-sun-line') ? 'ri-sun-line' : 'ri-moon-line')"></i>
+                <div class="nav__toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.add('show-menu'); document.getElementById('header').style.pointerEvents='auto'">
                     <i class="ri-menu-4-line"></i>
                 </div>
             </div>
@@ -87,201 +58,349 @@
     </header>
 
     <!--==================== MAIN ====================-->
-    <main class="main">
-
-        <!--==================== PROJECTS ====================-->
-        <section class="projects section" id="projects">
-            <h2 class="section__title">Projetos</h2>
-            <span class="section__subtitle">Meus projetos recentes em Front-end</span>
-
-            <div class="container section__border">
-                <div class="projects__container swiper">
-                    <!--==================== PROJECTS  ====================-->
-                    <div class="projects__content swiper-slide">
-
-                        <div>
-                            <span class="projects__subtitle">Dindom site</span>
-                            <h1 class="projects__title"> Site para software para gestão de condomínios </h1>
-                            <a href="https://meudindom.com.br" class="projects__button">
-                                Visite<i class="ri-arrow-right-line"></i>
-                            </a>
-
-                        </div>
-                        <br />
-                        <img src="/assets/img/front/dindom-site.png" alt="projects image" class="projects__img"
-                            style="width: 600px">
-                    </div>
-
-
-                    <!--==================== PROJECTS  ====================-->
-                    <div class="projects__content swiper-slide">
-
-                        <div>
-                            <span class="projects__subtitle">Lucas Portfólio</span>
-                            <h1 class="projects__title"> Portfólio de Lucas </h1>
-                            <a href="https://lucas-cruz.netlify.app/" class="projects__button">
-                                Visite<i class="ri-arrow-right-line"></i>
-                            </a>
-
-                        </div>
-                        <br />
-                        <img src="/assets/img/front/lucasPortifolio.png" alt="projects image" class="projects__img"
-                            style="width: 600px">
-                    </div>
-
-                    <!--==================== PROJECTS  ====================-->
-                    <div class="projects__content swiper-slide">
-
-                        <div>
-                            <span class="projects__subtitle">Wordpress</span>
-                            <h1 class="projects__title"> Site institucional para Advogada </h1>
-                            <a href="https://camilabarretoadv.com.br/" class="projects__button">
-                                Visite<i class="ri-arrow-right-line"></i>
-                            </a>
-
-                        </div>
-                        <br />
-                        <img src="/assets/img/front/camilaProjeto.jpeg" alt="projects image" class="projects__img"
-                            style="width: 600px">
-                    </div>
-
-                    <!--==================== PROJECTS  ====================-->
-                    <div class="projects__content swiper-slide">
-
-                        <div>
-                            <span class="projects__subtitle">Angular</span>
-                            <h1 class="projects__title"> Tela para cadastro de produtos </h1>
-                            <p class="projects__title"> Implantado no sistema legado da empresa tela para cadastro de
-                                produtos </p>
-                            <p class="projects__title"> Tecnologias: Angular e CSS </p>
-
-                        </div>
-                        <img src="/assets/img/front/produto.jpeg" alt="projects image" class="projects__img"
-                            style="width: 600px">
-                    </div>
-
-                    <!--==================== PROJECTS  ====================-->
-                    <div class="projects__content swiper-slide">
-
-                        <div>
-                            <span class="projects__subtitle">Wordpress</span>
-                            <h1 class="projects__title">Tizza Tecnologia</h1>
-
-                            <a href="https://tizza.com.br/" class="projects__button">
-                                Visite<i class="ri-arrow-right-line"></i>
-                            </a>
-                        </div>
-                        </br>
-                        <img src="/assets/img/front/tizzatec.png" alt="projects image" class="projects__img"
-                            style="width: 600px">
-                    </div>
-
-                    <!--==================== PROJECTS  ====================-->
-                    <div class="projects__content swiper-slide">
-
-                        <div>
-                            <span class="projects__subtitle">Wordpress</span>
-                            <h1 class="projects__title">PMG Flexo</h1>
-
-                            <a href="https://pmgflexo.com.br" class="projects__button">
-                                Visite<i class="ri-arrow-right-line"></i>
-                            </a>
-                        </div>
-                        </br>
-                        <img src="/assets/img/front/sitepmgflexo.png" alt="projects image" class="projects__img"
-                            style="width: 600px">
-                    </div>
-
-                    <!--==================== PROJECTS  ====================-->
-                    <div class="projects__content swiper-slide">
-
-                        <div>
-                            <span class="projects__subtitle">Wordpress</span>
-                            <h1 class="projects__title">PMG Narrow</h1>
-
-                            <a href="https://www.pmgnarrow.com.br" class="projects__button">
-                                Visite<i class="ri-arrow-right-line"></i>
-                            </a>
-                        </div>
-                        </br>
-                        <img src="/assets/img/front/narrow.png" alt="projects image" class="projects__img"
-                            style="width: 600px">
-                    </div>
-
-                    <!--==================== PROJECTS  ====================-->
-                    <div class="projects__content swiper-slide">
-
-                        <div>
-                            <span class="projects__subtitle">Wordpress</span>
-                            <h1 class="projects__title">Fruto Criativo</h1>
-
-                            <a href="https://frutocriativo.com.br/" class="projects__button">
-                                Visite<i class="ri-arrow-right-line"></i>
-                            </a>
-                        </div>
-                        </br>
-                        <img src="/assets/img/front/fruto.png" alt="projects image" class="projects__img"
-                            style="width: 600px">
-                    </div>
-                    <!--==================== PROJECTS 2 ====================-->
-                    <div class="projects__content swiper-slide">
-                        <div>
-                            <span class="projects__subtitle">HTML, CSS E VUE</span>
-                            <h1 class="projects__title">Chapeu seletor</h1>
-                            <p class="projects__title"> Criado Front-end básico para chamada à API do IBGE para
-                                localidades </p>
-
-                            <a href="https://github.com/DayMartin/chapeu__seletor/tree/master" class="projects__button">
-                                Código git <i class="ri-arrow-right-line"></i>
-                            </a>
-                        </div>
-                        </br>
-                        <img src="/assets/img/chapeu_seletor.png" alt="projects image" class="projects__img"
-                            style="width: 600px">
-                    </div>
-                    <!-- Swiper pagination -->
-                    <div class="swiper-pagination"></div>
+    <main class="main" style="padding-top: 8rem;">
+        <section class="section" id="projects">
+            <div class="container">
+                <div style="margin-bottom: 4rem; text-align: center;">
+                    <span class="badge">Interfaces & Portais</span>
+                    <h1 class="section__title" style="margin-top: 0.5rem;">Projetos Frontend & Portais</h1>
+                    <p class="section__subtitle">Interfaces de alta fidelidade visual, SEO otimizado, acessibilidade e carregamento veloz</p>
                 </div>
-            </div>
-        </section>
 
+                <!-- Navigation Tabs between sub-project categories -->
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 4rem; flex-wrap: wrap;">
+                    <a href="projetosFullStack.html" class="button button--secondary button--small">Full Stack & Back</a>
+                    <a href="projetosCloud.html" class="button button--secondary button--small">Cloud & DevOps</a>
+                    <a href="#" class="button button--small">Sites & Front</a>
+                </div>
 
-        <!--==================== CONTACT ====================-->
-        <section class="contact section" id="contact">
-            <h2 class="section__title">Contate-me</h2>
-            <span class="section__subtitle">Entrar em contato</span>
-
-            <div class="contact__container container grid section__border">
-                <div class="contact__content">
-                    <h3 class="contact__title">
-                        <i class="ri-chat-3-line"> Fale comigo </i>
-                    </h3>
-
-                    <div class="contact__info">
-                        <div class="contact__data">
-                            <span class="contact__data-title">Email</span>
-                            <span class="contact__data-info">negociosdinah@gmail.com</span>
-                        </div>
-
-                        <div class="contact__data">
-                            <span class="contact__data-title">Whatsapp</span>
-                            <span class="contact__data-info">+55 11 991745323</span>
-                            <!-- Insert a real number plus contry code-->
-                            <a href="https://wa.me/+5511991745323" class="contact__button">
-                                Me escreva <i class="ri-arrow-right-line"></i>
+                <!-- PROJECT FEED -->
+                <div class="grid" style="gap: 4rem;">
+                    
+                    <!-- 1. DINDOM LANDING PAGE -->
+                    <div class="card">
+                        <div class="featured__header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                            <div>
+                                <span class="badge badge--pink">Landing Page Otimizada</span>
+                                <h2 style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Landing Page Comercial Dindom
+                                </h2>
+                                <p style="color: var(--second-color); font-family: var(--code-font); font-size: var(--small-font-size); margin-top: 0.25rem;">
+                                    HTML5 • CSS3 • JavaScript • SEO Otimizado • Responsivo
+                                </p>
+                            </div>
+                            <a href="https://meudindom.com.br" target="_blank" class="button button--small">
+                                Visitar Site <i class="ri-external-link-line"></i>
                             </a>
                         </div>
 
-                        <div class="contact__data">
-                            <span class="contact__data-title">Linkedin</span>
-                            <span class="contact__data-info">@dinahmartins</span>
-                            <!-- Insert your brand name or profile-->
-                            <a href="https://www.linkedin.com/in/dinah-martins-8334b1199/" class="contact__button"
-                                target="_blank">
-                                Me escreva <i class="ri-arrow-right-line"></i>
+                        <div class="featured__content grid">
+                            <div class="featured__info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div>
+                                    <h4 class="featured__section-title">O Projeto</h4>
+                                    <p class="featured__description">
+                                        Landing page de conversão para o software Dindom (plataforma de condomínios). Estruturada sob princípios rígidos de indexação orgânica (SEO) e velocidade.
+                                    </p>
+                                </div>
+                                <div class="featured__decisions">
+                                    <h4 class="featured__section-title">Decisões de Engenharia</h4>
+                                    <ul class="featured__decisions-list">
+                                        <li><strong>Performance do Core Web Vitals:</strong> Otimização de imagens (WebP), carregamento assíncrono e deferido de scripts externos e eliminação de CSS bloqueante, obtendo nota acima de 95% no Lighthouse.</li>
+                                        <li><strong>Semântica & SEO:</strong> Emprego rigoroso de tags HTML5, estruturação adequada de cabeçalhos (H1-H6) e metatags estruturadas (Open Graph) para indexação eficiente.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="featured__visual">
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/front/dindom-site.png" alt="Dindom Site">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. LUCAS PORTFOLIO -->
+                    <div class="card">
+                        <div class="featured__header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                            <div>
+                                <span class="badge badge--cyan">Portfólio Interativo</span>
+                                <h2 style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Portfólio Profissional de Lucas
+                                </h2>
+                                <p style="color: var(--second-color); font-family: var(--code-font); font-size: var(--small-font-size); margin-top: 0.25rem;">
+                                    React.js • CSS Modules • Web Animations • Responsividade
+                                </p>
+                            </div>
+                            <a href="https://lucas-cruz.netlify.app/" target="_blank" class="button button--small">
+                                Visitar Site <i class="ri-external-link-line"></i>
                             </a>
                         </div>
 
+                        <div class="featured__content grid">
+                            <div class="featured__info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div>
+                                    <h4 class="featured__section-title">O Projeto</h4>
+                                    <p class="featured__description">
+                                        Interface web moderna de portfólio profissional, utilizando animações suaves e layouts em grade baseados em Flexbox e CSS Grid para transições fluidas.
+                                    </p>
+                                </div>
+                                <div class="featured__decisions">
+                                    <h4 class="featured__section-title">Decisões de Engenharia</h4>
+                                    <ul class="featured__decisions-list">
+                                        <li><strong>Modularidade de Componentes:</strong> Desenvolvido em React estruturando componentes totalmente reaproveitáveis e isolados através de CSS Modules, mitigando vazamento de estilos globais.</li>
+                                        <li><strong>Fluidez de Interface:</strong> Integração de micro-interações responsivas nas ações de clique e transições de páginas dinâmicas otimizadas.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="featured__visual">
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/front/lucasPortifolio.png" alt="Portfólio de Lucas">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. CAMILA BARRETO ADVOCACIA -->
+                    <div class="card">
+                        <div class="featured__header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                            <div>
+                                <span class="badge badge--pink">Plataforma Institucional</span>
+                                <h2 style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Portal Advocacia Camila Barreto
+                                </h2>
+                                <p style="color: var(--second-color); font-family: var(--code-font); font-size: var(--small-font-size); margin-top: 0.25rem;">
+                                    WordPress • Custom CSS3 • Gutenberg Layouts • Lead Conversion
+                                </p>
+                            </div>
+                            <a href="https://camilabarretoadv.com.br/" target="_blank" class="button button--small">
+                                Visitar Site <i class="ri-external-link-line"></i>
+                            </a>
+                        </div>
+
+                        <div class="featured__content grid">
+                            <div class="featured__info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div>
+                                    <h4 class="featured__section-title">O Projeto</h4>
+                                    <p class="featured__description">
+                                        Website corporativo para escritório de advocacia. Focado em captação ativa de leads e sobriedade de comunicação visual.
+                                    </p>
+                                </div>
+                                <div class="featured__decisions">
+                                    <h4 class="featured__section-title">Decisões de Engenharia</h4>
+                                    <ul class="featured__decisions-list">
+                                        <li><strong>CSS Customizado e Otimização CMS:</strong> Substituição de construtores pesados (page builders bloated) por blocos nativos customizados via CSS3 sob medida, melhorando o carregamento em 40%.</li>
+                                        <li><strong>Design Responsivo Focado em Conversão:</strong> Adaptação móvel estrita das chamadas de ação (CTA) para canais de mensagens rápidas (WhatsApp/Email).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="featured__visual">
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/front/camilaProjeto.jpeg" alt="Camila Barreto Advogada Site">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. TIZZA TECNOLOGIA -->
+                    <div class="card">
+                        <div class="featured__header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                            <div>
+                                <span class="badge badge--cyan">Portal Tecnológico</span>
+                                <h2 style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Portal Corporativo Tizza Tecnologia
+                                </h2>
+                                <p style="color: var(--second-color); font-family: var(--code-font); font-size: var(--small-font-size); margin-top: 0.25rem;">
+                                    WordPress • Custom CSS Grid • Performance Tuning • API Integration
+                                </p>
+                            </div>
+                            <span class="badge badge--cyan">Tizza Institucional</span>
+                        </div>
+
+                        <div class="featured__content grid">
+                            <div class="featured__info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div>
+                                    <h4 class="featured__section-title">O Projeto</h4>
+                                    <p class="featured__description">
+                                        Portal de comunicação institucional e exposição de serviços da Tizza Tecnologia. Serve como hub para divulgação de produtos da empresa.
+                                    </p>
+                                </div>
+                                <div class="featured__decisions">
+                                    <h4 class="featured__section-title">Decisões de Engenharia</h4>
+                                    <ul class="featured__decisions-list">
+                                        <li><strong>Estrutura de Blocos Limpa:</strong> Desenvolvimento de folhas de estilo customizadas integradas às folhas nativas do tema, gerando uma interface veloz e livre de scripts excessivos.</li>
+                                        <li><strong>SEO Técnico Corporativo:</strong> Sitemap, dados estruturados JSON-LD e tags canônicas configuradas de forma automatizada para indexar os pilares de produto corporativos.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="featured__visual">
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/front/tizzatec.png" alt="Tizza Tecnologia Site">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. PORTAL PMG FLEXO -->
+                    <div class="card">
+                        <div class="featured__header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                            <div>
+                                <span class="badge badge--pink">Catálogo de Produtos</span>
+                                <h2 style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Website Institucional PMG Flexo
+                                </h2>
+                                <p style="color: var(--second-color); font-family: var(--code-font); font-size: var(--small-font-size); margin-top: 0.25rem;">
+                                    WordPress • Custom Theme Styles • Image Optimization • Responsive Navigation
+                                </p>
+                            </div>
+                            <a href="https://pmgflexo.com.br" target="_blank" class="button button--small">
+                                Visitar Site <i class="ri-external-link-line"></i>
+                            </a>
+                        </div>
+
+                        <div class="featured__content grid">
+                            <div class="featured__info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div>
+                                    <h4 class="featured__section-title">O Projeto</h4>
+                                    <p class="featured__description">
+                                        Interface institucional e catálogo de maquinários e serviços para a indústria de impressão flexográfica PMG Flexo.
+                                    </p>
+                                </div>
+                                <div class="featured__decisions">
+                                    <h4 class="featured__section-title">Decisões de Engenharia</h4>
+                                    <ul class="featured__decisions-list">
+                                        <li><strong>Compressão e Asset Delivery:</strong> Otimização de imagens técnicas de grande escala para formatos modernos, acelerando o tempo de carregamento inicial em conexões de rede restritas.</li>
+                                        <li><strong>Navegação Mobile Fluida:</strong> Criação de barras de menus e galerias de imagens responsivas com interações simplificadas por toque.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="featured__visual">
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/front/sitepmgflexo.png" alt="PMG Flexo Portal">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. PORTAL PMG NARROW -->
+                    <div class="card">
+                        <div class="featured__header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                            <div>
+                                <span class="badge badge--cyan">Catálogo Segmentado</span>
+                                <h2 style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Website Corporativo PMG Narrow
+                                </h2>
+                                <p style="color: var(--second-color); font-family: var(--code-font); font-size: var(--small-font-size); margin-top: 0.25rem;">
+                                    WordPress • Custom CSS adjustments • Cross-Device Optimization • SEO Metadata
+                                </p>
+                            </div>
+                            <a href="https://www.pmgnarrow.com.br" target="_blank" class="button button--small">
+                                Visitar Site <i class="ri-external-link-line"></i>
+                            </a>
+                        </div>
+
+                        <div class="featured__content grid">
+                            <div class="featured__info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div>
+                                    <h4 class="featured__section-title">O Projeto</h4>
+                                    <p class="featured__description">
+                                        Site voltado ao braço de máquinas de banda estreita da PMG. Estruturado para exibir galerias de especificações de equipamentos de alta precisão.
+                                    </p>
+                                </div>
+                                <div class="featured__decisions">
+                                    <h4 class="featured__section-title">Decisões de Engenharia</h4>
+                                    <ul class="featured__decisions-list">
+                                        <li><strong>Ajustes de Grid Responsivo:</strong> Desenvolvimento de blocos CSS organizados de maneira proporcional ao viewport, prevenindo quebras em tablets e celulares de telas pequenas.</li>
+                                        <li><strong>Aderência de Metadados:</strong> Implementação de dados estruturados para otimização de exibições em buscas orgânicas direcionadas B2B.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="featured__visual">
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/front/narrow.png" alt="PMG Narrow Portal">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. FRUTO CRIATIVO -->
+                    <div class="card">
+                        <div class="featured__header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                            <div>
+                                <span class="badge badge--pink">Website de Agência</span>
+                                <h2 style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Portal Criativo Fruto Criativo
+                                </h2>
+                                <p style="color: var(--second-color); font-family: var(--code-font); font-size: var(--small-font-size); margin-top: 0.25rem;">
+                                    WordPress Custom Theme • CSS Grids • Speed Optimization • Portfolio Layout
+                                </p>
+                            </div>
+                            <a href="https://frutocriativo.com.br/" target="_blank" class="button button--small">
+                                Visitar Site <i class="ri-external-link-line"></i>
+                            </a>
+                        </div>
+
+                        <div class="featured__content grid">
+                            <div class="featured__info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div>
+                                    <h4 class="featured__section-title">O Projeto</h4>
+                                    <p class="featured__description">
+                                        Website da agência Fruto Criativo para divulgação de cases de design, fotografia e estratégias de marketing digital.
+                                    </p>
+                                </div>
+                                <div class="featured__decisions">
+                                    <h4 class="featured__section-title">Decisões de Engenharia</h4>
+                                    <ul class="featured__decisions-list">
+                                        <li><strong>Layout Assimétrico em CSS Grid:</strong> Utilização avançada de posicionamento CSS para dar uma identidade moderna de agência de publicidade sem comprometer o fluxo de leitura móvel.</li>
+                                        <li><strong>Otimização de Carregamento:</strong> Minificação de arquivos de estilos e scripts inline para melhorar as taxas de indexação em dispositivos de baixa performance.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="featured__visual">
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/front/fruto.png" alt="Fruto Criativo Portal">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. CHAPÉU SELETOR (API IBGE) -->
+                    <div class="card">
+                        <div class="featured__header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                            <div>
+                                <span class="badge badge--cyan">Integração Front-end</span>
+                                <h2 style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Mini-App Chapéu Seletor (Chamada API IBGE)
+                                </h2>
+                                <p style="color: var(--second-color); font-family: var(--code-font); font-size: var(--small-font-size); margin-top: 0.25rem;">
+                                    Vue.js • HTML5 • Vanilla CSS3 • Axios • REST API Integration
+                                </p>
+                            </div>
+                            <a href="https://github.com/DayMartin/chapeu__seletor/tree/master" target="_blank" class="button button--small">
+                                Código Git <i class="ri-github-line"></i>
+                            </a>
+                        </div>
+
+                        <div class="featured__content grid">
+                            <div class="featured__info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div>
+                                    <h4 class="featured__section-title">O Projeto</h4>
+                                    <p class="featured__description">
+                                        Frontend reativo integrado de consumo de dados públicos estruturados, fazendo chamadas HTTP para retornar a árvore de estados e municípios das APIs de Localidades do IBGE.
+                                    </p>
+                                </div>
+                                <div class="featured__decisions">
+                                    <h4 class="featured__section-title">Decisões de Engenharia</h4>
+                                    <ul class="featured__decisions-list">
+                                        <li><strong>Reatividade Dinâmica:</strong> Emprego de reatividade do Vue para carregar dinamicamente as cidades dependendo do estado selecionado pelo usuário, com feedbacks rápidos de loaders.</li>
+                                        <li><strong>Componentes Desacoplados:</strong> Separação em estruturas independentes para os dropdowns dinâmicos e área de apresentação dos resultados, facilitando a portabilidade do código.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="featured__visual">
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/chapeu_seletor.png" alt="Chapeu Seletor App">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -291,63 +410,24 @@
     <!--==================== FOOTER ====================-->
     <footer class="footer">
         <div class="footer__container container">
-            <h1 class="footer__title">Dinah Martins</h1>
-            <p> Front-end Developer || Back-end Developer || </p>
-
-            <ul class="footer__list">
-                <li>
-                    <a href="#home" class="footer__link">Inicio</a>
-                </li>
-
-                <li>
-                    <a href="#skills" class="footer__link">Habilidades</a>
-                </li>
-
-                <li>
-                    <a href="#projects" class="footer__link">Projetos</a>
-                </li>
-
-            </ul>
-
-            <ul class="footer__social">
-                <a href="https://www.linkedin.com/in/dinah-martins-8334b1199/" target="_blank"
-                    class="footer__social-link">
-                    <i class="ri-linkedin-box-line"></i>
-                </a>
-
-                <a href="https://github.com/DayMartin" target="_blank" class="footer__social-link">
-                    <i class="ri-github-line"></i>
-                </a>
-
-                <a href="https://dribbble.com/" target="_blank" class="footer__social-link">
-                    <i class="ri-dribbble-line"></i>
-                </a>
-            </ul>
-
+            <h1 class="footer__logo">Dinah Martins</h1>
+            <p class="footer__subtitle">Software Engineer Senior & Cloud Architecture</p>
             <span class="footer__copy">
-                &#169; 2023 Todos os direitos reservados
+                &#169; 2026 Dinah Martins. Todos os direitos reservados.
             </span>
-
         </div>
     </footer>
-
 
     <!--========== SCROLL UP ==========-->
     <a href="#" class="scrollup" id="scroll-up">
         <i class="ri-arrow-up-line"></i>
     </a>
 
-    <!--=============== SCROLLREVEAL ===============-->
-    <script src="/assets/js/scrollreveal.min.js"></script>
-
-    <!--=============== SWIPER JS ===============-->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-
-    <!--=============== EMAIL JS ===============-->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!--=============== TRANSLATION JS ===============-->
+    <script src="assets/js/translation.js?v=1.2"></script>
 
     <!--=============== MAIN JS ===============-->
-    <script src="/assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=1.2"></script>
 </body>
 
 </html>

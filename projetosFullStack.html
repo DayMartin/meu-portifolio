@@ -1,565 +1,536 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description"
+        content="Detalhamento técnico de projetos Full Stack e Engenharia de Software desenvolvidos por Dinah Martins.">
+
     <!--=============== FAVICON ===============-->
     <link href="assets/img/favicon.png" rel="shortcut icon" type="image/x-icon" />
+
     <!--=============== REMIXICONS ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
-    <!--=============== SWIPER CSS ===============-->
-    <link href="/assets/css/swiper-bundle.min.css" rel="stylesheet" />
+
     <!--=============== CSS ===============-->
-    <link href="assets/css/styles.css" rel="stylesheet" />
-    <title>Projetos</title>
-    <style>
-        .projects__description {
-            margin-top: .75rem;
-            line-height: 1.6;
-            font-size: .95rem;
-        }
+    <link href="assets/css/styles.css?v=1.2" rel="stylesheet" />
 
-        .projects__details {
-            margin: .75rem 0 1.25rem 1.25rem;
-            display: grid;
-            gap: .35rem;
-            line-height: 1.5;
-        }
-
-        .projects__details li {
-            list-style: disc;
-        }
-    </style>
+    <title>Projetos FullStack & Engenharia | Dinah Martins</title>
 </head>
 
 <body>
+    <script>
+        // Apply theme immediately to prevent white flash
+        if (localStorage.getItem('selected-theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
-        <nav class="nav container">
-            <a class="nav__logo" href="#">Dinah Martins </a>
+        <nav class="nav">
+            <a href="index.html#home" class="nav__logo">
+                <span class="nav__logo-dot"></span> Dinah Martins
+            </a>
             <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list grid">
-                    <li class="nav__item">
-                        <a class="nav__link active-link" href="/index.html#home">
-                            <i class="ri-home-5-line"></i>Inicio
-                        </a>
+                <ul class="nav__list">
+                    <li><a class="nav__link" href="index.html#home"
+                            onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Início</a>
                     </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="/index.html#skills">
-                            <i class="ri-trophy-line"></i> Habilidades
-                        </a>
+                    <li><a class="nav__link" href="index.html#about"
+                            onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Trajetória</a>
                     </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="/index.html#qualification"><i
-                                class="ri-book-open-line"></i>Qualificações
-
-                        </a>
+                    <li><a class="nav__link" href="index.html#specialties"
+                            onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Especialidades</a>
                     </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="/index.html#projects"><i class="ri-image-line"></i>Projetos
-
-                        </a>
+                    <li><a class="nav__link" href="index.html#dindom"
+                            onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Case
+                            Destaque</a></li>
+                    <li><a class="nav__link active-link" href="#projects"
+                            onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Projetos</a>
                     </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="/index.html#certificados"><i
-                                class="ri-briefcase-line"></i>Certificados
-
-                        </a>
+                    <li><a class="nav__link" href="index.html#certifications"
+                            onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Certificações</a>
                     </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="/index.html#contact"><i class="ri-chat-3-line"></i>Contato
-
-                        </a>
+                    <li><a class="nav__link" href="index.html#contact"
+                            onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Contato</a>
                     </li>
                 </ul>
-                <!-- Close button -->
-                <div class="nav__close" id="nav-close">
+                <div class="nav__close" id="nav-close"
+                    onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">
                     <i class="ri-close-line"></i>
                 </div>
             </div>
             <div class="nav__buttons">
+                <!-- Translation button -->
+                <i class="ri-global-line change-theme" id="lang-button" title="Change to English" onclick="const nextLang = localStorage.getItem('selected-lang') === 'en' ? 'pt' : 'en'; applyLanguage(nextLang)"></i>
                 <!-- Theme change button -->
-                <i class="ri-moon-line change-theme" id="theme-button"></i>
-                <!-- Toggle button -->
-                <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-moon-line change-theme" id="theme-button" onclick="document.body.classList.toggle('dark-theme'); if(this.classList.contains('ri-moon-line')){ this.classList.replace('ri-moon-line','ri-sun-line'); } else { this.classList.replace('ri-sun-line','ri-moon-line'); }; localStorage.setItem('selected-theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light'); localStorage.setItem('selected-icon', this.classList.contains('ri-sun-line') ? 'ri-sun-line' : 'ri-moon-line')"></i>
+                <div class="nav__toggle" id="nav-toggle"
+                    onclick="document.getElementById('nav-menu').classList.add('show-menu'); document.getElementById('header').style.pointerEvents='auto'">
                     <i class="ri-menu-4-line"></i>
                 </div>
             </div>
         </nav>
     </header>
+
     <!--==================== MAIN ====================-->
-    <main class="main">
-        <!--==================== PROJECTS ====================-->
-        <section class="projects section" id="projects">
-            <h2 class="section__title">Projetos</h2>
-            <span class="section__subtitle">Projetos full stack, automações e estudos aplicados</span>
-            <div class="container section__border">
-                <div class="projects__container swiper">
-                    <div class="projects__container swiper">
+    <main class="main" style="padding-top: 8rem;">
+        <section class="section" id="projects">
+            <div class="container">
+                <div style="margin-bottom: 4rem; text-align: center;">
+                    <span class="badge">Engenharia de Software</span>
+                    <h1 class="section__title" style="margin-top: 0.5rem;">Projetos Full Stack</h1>
+                    <p class="section__subtitle">Casos detalhados focados em arquitetura de código, concorrência e
+                        modelagem de dados</p>
+                </div>
 
-                        <!--==================== PROJECTS 1 ====================-->
-                        <div class="projects__content swiper-slide">
+                <!-- Navigation Tabs between sub-project categories -->
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 4rem; flex-wrap: wrap;">
+                    <a href="#" class="button button--small">Full Stack & Back</a>
+                    <a href="projetosCloud.html" class="button button--secondary button--small">Cloud & DevOps</a>
+                    <a href="projetosFront.html" class="button button--secondary button--small">Sites & Front</a>
+                </div>
+
+                <!-- PROJECT FEED -->
+                <div class="grid" style="gap: 4rem;">
+
+                    <!-- CASE 1: DINDOM -->
+                    <div class="card" style="border-color: rgba(139, 92, 246, 0.25);">
+                        <div class="featured__header"
+                            style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
                             <div>
-                                <span class="projects__subtitle">
+                                <span class="badge badge--pink">Case Principal</span>
+                                <h2
+                                    style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Dindom — Plataforma de Gestão Condominial SaaS
+                                </h2>
+                                <p
+                                    style="color: var(--second-color); font-family: var(--code-font); font-size: var(--small-font-size); margin-top: 0.25rem;">
                                     React • TypeScript • NestJS • Supabase • PostgreSQL • Redis • Docker • Capacitor •
-                                    Render • WhatsApp API
-                                </span>
-
-                                <h1 class="projects__title">Dindom — Plataforma de gestão condominial</h1>
-
-                                <p class="projects__description">
-                                    Plataforma SaaS criada para centralizar a gestão de condomínios, facilitando a
-                                    rotina de administradoras,
-                                    síndicos e moradores através de módulos operacionais, financeiros e de comunicação.
+                                    WhatsApp API
                                 </p>
-
-                                <ul class="projects__details">
-                                    <li>
-                                        Desenvolvimento de uma aplicação web completa com React e TypeScript no
-                                        front-end, focada em usabilidade,
-                                        responsividade e experiência mobile-first.
-                                    </li>
-                                    <li>
-                                        Backend construído com NestJS, estruturado em módulos, autenticação, permissões
-                                        por perfil e regras de
-                                        acesso por condomínio, bloco, unidade e usuário.
-                                    </li>
-                                    <li>
-                                        Banco de dados PostgreSQL com Supabase, utilizando armazenamento de arquivos,
-                                        autenticação, controle de
-                                        dados relacionais e organização por escopo de condomínio.
-                                    </li>
-                                    <li>
-                                        Uso de Redis para cache e filas, melhorando performance e permitindo
-                                        processamento assíncrono de tarefas
-                                        como notificações, integrações, sincronizações e rotinas operacionais.
-                                    </li>
-                                    <li>
-                                        Containerização com Docker para padronizar o ambiente de desenvolvimento,
-                                        facilitar deploy e organizar
-                                        serviços da aplicação.
-                                    </li>
-                                    <li>
-                                        Integração com aplicativo mobile utilizando Capacitor, permitindo reaproveitar a
-                                        base web em versões para
-                                        Android e iOS.
-                                    </li>
-                                    <li>
-                                        Módulos implementados para avisos, reservas, encomendas, reclamações,
-                                        ocorrências, documentos,
-                                        financeiro, contas a pagar, contas a receber, estoque, moradores, unidades e
-                                        condomínios.
-                                    </li>
-                                    <li>
-                                        Integração com WhatsApp para centralizar atendimentos, identificar moradores e
-                                        transformar conversas em
-                                        ações dentro da plataforma, como reclamações, agendamentos e consultas.
-                                    </li>
-                                    <li>
-                                        Deploy e hospedagem em ambiente cloud, com separação entre front-end, API,
-                                        banco, storage e serviços
-                                        auxiliares.
-                                    </li>
-                                </ul>
                             </div>
-
-                            <img alt="projects image" class="projects__img2" src="/assets/img/full/dindom.png"
-                                style="width: 1000px;" />
+                            <a href="https://meudindom.com.br" target="_blank" class="button button--small">
+                                Visitar Landing Page <i class="ri-external-link-line"></i>
+                            </a>
                         </div>
 
-                        <!--==================== PROJECTS 1 ====================-->
-                        <div class="projects__content swiper-slide">
-                            <div><span class="projects__subtitle">TypeScript • Node.js • Express • JWT • React • Axios •
-                                    MySQL</span>
-                                <h1 class="projects__title">Sistema financeiro e comercial</h1>
-                                <p class="projects__description">Aplicação full stack para apoiar a rotina
-                                    administrativa de compra, venda, estoque e controle financeiro.</p>
-                                <ul class="projects__details">
-                                    <li>Gestão de compras, vendas e produtos em estoque.</li>
-                                    <li>Contas a pagar, contas a receber e relatórios gerenciais.</li>
-                                    <li>Controle de comissões, histórico de compras do cliente e autenticação com JWT.
-                                    </li>
-                                </ul>
-                                <a class="projects__button" href="https://github.com/DayMartin/FinanceiroNode/">Ver
-                                    código no GitHub <i class="ri-arrow-right-line"></i></a>
-                            </div>
-
-                            <img alt="projects image" class="projects__img2" src="/assets/img/full/est1.png"
-                                style="width: 1000px;" />
-                        </div>
-                        <!--==================== PROJECTS 1 ====================-->
-                        <div class="projects__content swiper-slide">
-                            <div><span class="projects__subtitle">Bubble • Supabase • N8N</span>
-                                <h1 class="projects__title">Sistema de gestão de estoque</h1>
-                                <p class="projects__description">Aplicação criada para controlar entrada e saída de
-                                    produtos, organizar movimentações e reduzir o controle manual de estoque.</p>
-                                <ul class="projects__details">
-                                    <li>Cadastro e consulta de itens em estoque.</li>
-                                    <li>Registro de movimentações de entrada e saída.</li>
-                                    <li>Automação de fluxos operacionais com N8N e persistência de dados no Supabase.
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <img alt="projects image" class="projects__img2" src="/assets/img/full/softwareestoque.png"
-                                style="width: 1000px;" />
-                            <img alt="projects image" class="projects__img2" src="/assets/img/full/softwareestoque2.png"
-                                style="width: 1000px;" />
-                        </div>
-                        <!--==================== PROJECTS 1 ====================-->
-                        <div class="projects__content swiper-slide">
-                            <div><span class="projects__subtitle">Bubble • Supabase • N8N</span>
-                                <h1 class="projects__title">Plataforma para locação de barcos</h1>
-                                <p class="projects__description">Sistema para centralizar a gestão de barcos disponíveis
-                                    para locação, reservas e informações operacionais do serviço.</p>
-                                <ul class="projects__details">
-                                    <li>Cadastro de embarcações e dados da locação.</li>
-                                    <li>Organização do fluxo de reserva para facilitar o atendimento ao cliente.</li>
-                                    <li>Integração entre interface, banco de dados e automações.</li>
-                                </ul>
-                            </div>
-
-                            <img alt="projects image" class="projects__img2" src="/assets/img/full/softwarebarco.png"
-                                style="width: 1000px;" />
-                            <img alt="projects image" class="projects__img2" src="/assets/img/full/barco3.png"
-                                style="width: 1000px;" />
-                        </div>
-                        <!--==================== PROJECTS 1 ====================-->
-                        <div class="projects__content swiper-slide">
-                            <div><span class="projects__subtitle">Next.js • Nest.js • Golang • Kafka • Google Maps •
-                                    WebSocket • MongoDB • Docker</span>
-                                <h1 class="projects__title">Sistema de rastreamento de veículos em tempo real</h1>
-                                <p class="projects__description">Plataforma full stack para acompanhar veículos no mapa
-                                    em tempo real, simulando envio de posições e atualização instantânea da interface.
-                                </p>
-                                <ul class="projects__details">
-                                    <li>Comunicação em tempo real com WebSocket.</li>
-                                    <li>Processamento assíncrono de eventos com Apache Kafka.</li>
-                                    <li>Visualização de rotas e localização usando Google Maps.</li>
-                                    <li>Arquitetura conteinerizada com serviços separados.</li>
-                                </ul>
-                                <a class="projects__button" href="https://github.com/DayMartin/TrajetoRotas/">Ver código
-                                    no GitHub <i class="ri-arrow-right-line"></i></a>
-                            </div>
-
-                            <img alt="projects image" class="projects__img2"
-                                src="/assets/img/full/geraciamentoRotas.png" style="width: 1000px;" />
-                        </div>
-
-                        <!--==================== PROJECTS 1 ====================-->
-                        <div class="projects__content swiper-slide">
-                            <div><span class="projects__subtitle">React • Next.js • Nest.js • Node.js • MongoDB •
-                                    Docker</span>
-                                <h1 class="projects__title">Sistema de gerenciamento de eventos musicais</h1>
-                                <p class="projects__description">Projeto full stack para organizar eventos, músicos e
-                                    instrumentos, com backend, frontend e banco rodando em containers.</p>
-                                <ul class="projects__details">
-                                    <li>Cadastro e gestão de eventos.</li>
-                                    <li>Vinculação de músicos, instrumentos e informações operacionais.</li>
-                                    <li>Ambiente Dockerizado para facilitar execução e manutenção do projeto.</li>
-                                </ul>
-                                <a class="projects__button" href="https://github.com/DayMartin/ArthWind">Ver código no
-                                    GitHub <i class="ri-arrow-right-line"></i></a>
-                            </div>
-
-                            <img alt="projects image" class="projects__img2" src="/assets/img/full/banda2.png"
-                                style="width: 1000px;" />
-                        </div>
-                        <!--==================== PROJECTS 1 ====================-->
-                        <!--==================== PROJECTS 1 ====================-->
-                        <div class="projects__content swiper-slide">
-                            <div><span class="projects__subtitle">Python • Flask • SQLAlchemy • Marshmallow • GeoPy •
-                                    JWT • Angular • MySQL</span>
-                                <h1 class="projects__title">Sistema de rotas e coordenadas em mapa</h1>
-                                <p class="projects__description">Aplicação para cadastrar pontos geográficos, calcular
-                                    distâncias entre coordenadas e visualizar informações no mapa.</p>
-                                <ul class="projects__details">
-                                    <li>API em Flask com autenticação JWT e modelagem usando SQLAlchemy.</li>
-                                    <li>Validação e serialização de dados com Marshmallow.</li>
-                                    <li>Uso de GeoPy para cálculo e manipulação de coordenadas.</li>
-                                </ul>
-                                <a class="projects__button" href="https://github.com/DayMartin/RotaMapeada">Ver código
-                                    no GitHub <i class="ri-arrow-right-line"></i></a>
-                            </div>
-
-                            <img alt="projects image" class="projects__img2" src="/assets/img/full/maps.png"
-                                style="width: 1000px;" />
-                        </div>
-                        <!--==================== PROJECTS 1 ====================-->
-                        <div class="projects__content swiper-slide">
-                            <div><span class="projects__subtitle">Python • Tkinter</span>
-                                <h1 class="projects__title">Ferramenta para limpeza de planilhas Excel</h1>
-                                <p class="projects__description">Aplicação desktop criada para automatizar a limpeza de
-                                    planilhas, mantendo apenas as colunas necessárias para o usuário.</p>
-                                <ul class="projects__details">
-                                    <li>Interface simples para seleção e tratamento de arquivos.</li>
-                                    <li>Redução de trabalho manual em planilhas repetitivas.</li>
-                                    <li>Foco em produtividade e padronização de dados.</li>
-                                </ul>
-                                <a class="projects__button" href="https://github.com/DayMartin/limpezaExcel">Ver código
-                                    no GitHub <i class="ri-arrow-right-line"></i></a>
-                            </div>
-
-                            <img alt="projects image" class="projects__img2" src="/assets/img/full/limpezaExcel.png"
-                                style="width: 1000px;" />
-                        </div>
-                        <!--==================== PROJECTS  ====================-->
-                        <div class="projects__content swiper-slide">
-                            <div><span class="projects__subtitle">JavaScript • Node.js • Express • MongoDB</span>
-                                <h1 class="projects__title">API REST para ordens de serviço</h1>
-                                <p class="projects__description">Backend desenvolvido do zero para gerenciar usuários e
-                                    ordens de serviço, servindo como base para aplicações operacionais.</p>
-                                <ul class="projects__details">
-                                    <li>Criação de endpoints REST para cadastro, consulta e manipulação de dados.</li>
-                                    <li>Modelagem de usuários e ordens de serviço no MongoDB.</li>
-                                    <li>Estrutura preparada para integração com frontend.</li>
-                                </ul>
-                                <a class="projects__button"
-                                    href="https://github.com/DayMartin/conecta/tree/main/back">Ver código no GitHub <i
-                                        class="ri-arrow-right-line"></i></a>
-                            </div>
-
-                            <img alt="projects image" class="projects__img2" src="/assets/img/back/backend.png"
-                                style="width: 900px;" />
-                        </div>
-                        <!--==================== PROJECTS 1 ====================-->
-                        <div class="projects__content swiper-slide">
-                            <div><span class="projects__subtitle">JavaScript • MongoDB • GraphQL • Angular</span>
-                                <h1 class="projects__title">Controle de estoque com GraphQL</h1>
-                                <p class="projects__description">Sistema para controle de estoque com frontend em
-                                    Angular e camada de dados usando GraphQL.</p>
-                                <ul class="projects__details">
-                                    <li>Cadastro e consulta de produtos.</li>
-                                    <li>Operações de estoque estruturadas via GraphQL.</li>
-                                    <li>Integração entre frontend, API e banco MongoDB.</li>
-                                </ul>
-                            </div>
-
-                            <img alt="projects image" class="projects__img2" src="/assets/img/full/controleS.png"
-                                style="width: 900px;" />
-                        </div>
-                        <!--==================== PROJECTS 1 ====================-->
-                        <div class="projects__content swiper-slide">
-                            <div><span class="projects__subtitle">React • JavaScript • Node.js • MongoDB • Axios</span>
-                                <h1 class="projects__title">Sistema full stack de ordens de serviço</h1>
-                                <p class="projects__description">Aplicação para gerenciar ordens de serviço, usuários e
-                                    o encaminhamento de demandas entre setores.</p>
-                                <ul class="projects__details">
-                                    <li>Abertura e acompanhamento de ordens de serviço.</li>
-                                    <li>Organização de usuários e setores responsáveis.</li>
-                                    <li>Integração do frontend React com API Node.js.</li>
-                                </ul>
-                                <a class="projects__button" href="https://github.com/DayMartin/conecta/tree/main">Ver
-                                    código no GitHub <i class="ri-arrow-right-line"></i></a>
-                            </div>
-
-                            <img alt="projects image" class="projects__img2" src="/assets/img/full/OS.png"
-                                style="width: 1000px;" />
-                        </div>
-                        <!--==================== PROJECTS 7 ====================-->
-                        <div class="projects__content swiper-slide">
-                            <div><span class="projects__subtitle">Java</span>
-                                <h1 class="projects__title">Sistema de ordens de serviço em Java</h1>
-                                <p class="projects__description">Projeto desenvolvido para praticar estruturação de
-                                    sistemas administrativos em Java, com foco no fluxo de abertura e controle de ordens
-                                    de serviço.</p>
-                                <ul class="projects__details">
-                                    <li>Cadastro e organização de solicitações.</li>
-                                    <li>Controle básico do ciclo de uma ordem de serviço.</li>
-                                    <li>Aplicação dos fundamentos de programação orientada a objetos.</li>
-                                </ul>
-                                <a class="projects__button" href="https://github.com/DayMartin/OrdemServicoJava">Ver
-                                    código no GitHub <i class="ri-arrow-right-line"></i></a>
-                            </div>
-
-                            <img alt="projects image" class="projects__img" src="/assets/img/osJava.png"
-                                style="width: 1000px;" />
-                        </div>
-                        <div class="projects__content swiper-slide">
-                            <div><span class="projects__subtitle">Node.js • Express • SOAP • Axios • JSON • XML</span>
-                                <h1 class="projects__title">Integração fiscal para emissão de notas</h1>
-                                <p class="projects__description">Funcionalidade criada em sistema legado para permitir
-                                    emissão de notas fiscais diretamente pela integração com a prefeitura.</p>
-                                <ul class="projects__details">
-                                    <li>Integração com serviço SOAP e manipulação de XML.</li>
-                                    <li>Conversão e tratamento de dados entre JSON, XML e API interna.</li>
-                                    <li>Projeto implantado em ambiente empresarial na Tizza Tecnologia.</li>
-                                </ul>
-                            </div>
-                            <img alt="projects image" class="projects__img2" src="/assets/img/back/apifinanceiro.png"
-                                style="width: 700px;" />
-                        </div>
-                        <div class="projects__container swiper">
-                            <!--==================== PROJECTS 2 ====================-->
-                            <div class="projects__content swiper-slide">
-                                <div><span class="projects__subtitle">Vue.js • API IBGE</span>
-                                    <h1 class="projects__title">Consulta de localidades com API pública</h1>
-                                    <p class="projects__description">Frontend criado para consumir a API do IBGE e
-                                        listar localidades, praticando integração com serviço externo e manipulação de
-                                        dados na interface.</p>
-                                    <ul class="projects__details">
-                                        <li>Consumo de API pública.</li>
-                                        <li>Renderização de dados no frontend.</li>
-                                        <li>Organização de componentes e estados em Vue.js.</li>
-                                    </ul>
-                                    <a class="projects__button"
-                                        href="https://github.com/DayMartin/chapeu__seletor/tree/master">Ver código no
-                                        GitHub <i class="ri-arrow-right-line"></i></a>
-                                </div>
-
-                                <img alt="projects image" class="projects__img" src="/assets/img/chapeu_seletor.png"
-                                    style="width: 600px" />
-                            </div>
-                            <!--==================== PROJECTS 1 ====================-->
-                            <div class="projects__content swiper-slide">
-                                <div><span class="projects__subtitle">Python • MySQL</span>
-                                    <h1 class="projects__title">Sistema de cadastro de reservas de veículos</h1>
-                                    <p class="projects__description">Aplicação básica para registrar reservas de carros,
-                                        clientes e informações de locação.</p>
-                                    <ul class="projects__details">
-                                        <li>Cadastro e consulta de reservas.</li>
-                                        <li>Persistência de dados em MySQL.</li>
-                                        <li>Projeto voltado para fundamentos de sistemas administrativos.</li>
-                                    </ul>
-                                    <a class="projects__button" href="https://github.com/DayMartin/centrallocs">Ver
-                                        código no GitHub <i class="ri-arrow-right-line"></i></a>
-                                </div>
-
-                                <img alt="projects image" class="projects__img2" src="/assets/img/aba_cadastro.png"
-                                    style="width: 700px;" />
-                            </div>
-                            <!--==================== PROJECTS 1 ====================-->
-                            <div class="projects__content swiper-slide">
-                                <div><span class="projects__subtitle">Python • Scikit-learn • Regressão Linear • MSE •
-                                        MAE • R²-score</span>
-                                    <h1 class="projects__title">Modelo de previsão de emissões de CO₂</h1>
-                                    <p class="projects__description">Projeto de machine learning para treinar e avaliar
-                                        um modelo de regressão linear capaz de prever emissões de CO₂ com base em
-                                        características do veículo.</p>
-                                    <ul class="projects__details">
-                                        <li>Treinamento de modelo supervisionado com Scikit-learn.</li>
-                                        <li>Avaliação usando métricas como MSE, MAE e R²-score.</li>
-                                        <li>Análise da relação entre tamanho do motor e emissão de poluentes.</li>
-                                    </ul>
-                                    <a class="projects__button" href="https://github.com/DayMartin/RegressaoLinear">Ver
-                                        código no GitHub <i class="ri-arrow-right-line"></i></a>
-                                </div>
+                        <div class="featured__content grid">
+                            <div class="featured__info" style="display: flex; flex-direction: column; gap: 1.5rem;">
                                 <div>
-                                    <br />
+                                    <h4 class="featured__section-title">Problema</h4>
+                                    <p class="featured__description">
+                                        Administradoras de condomínio e síndicos lidam diariamente com processos
+                                        fragmentados de comunicação, reservas de áreas comuns instáveis e dificuldades
+                                        no fechamento de contas financeiras. A falta de centralização e histórico de
+                                        pagamentos/moradores resulta em atritos de dados e lentidão operacional.
+                                    </p>
                                 </div>
-                                <a ;="" class="projects__button" href="https://github.com/DayMartin/RegressaoLinear"
-                                    style="color: blue">
-                                    Código no Git<i class="ri-arrow-right-line"></i>
-                                </a>
-                                <img alt="projects image" class="projects__img2" src="/assets/img/Ia/Treinamento.png"
-                                    style="width: 960px;" />
-                            </div>
-                            <div class="projects__content swiper-slide">
-                                <div><span class="projects__subtitle">Python • Scikit-learn • NumPy • Pandas •
-                                        Matplotlib • Árvore de Decisão</span>
-                                    <h1 class="projects__title">Modelo experimental para classificação de Covid-19</h1>
-                                    <p class="projects__description">Estudo de machine learning usando árvore de decisão
-                                        para classificar a possibilidade de Covid-19 a partir de exames laboratoriais
-                                        disponíveis em dataset do Hospital Einstein.</p>
-                                    <ul class="projects__details">
-                                        <li>Tratamento e análise exploratória de dados com Pandas e NumPy.</li>
-                                        <li>Treinamento de modelo de classificação com Scikit-learn.</li>
-                                        <li>Projeto acadêmico, sem finalidade clínica ou uso em produção.</li>
+
+                                <div>
+                                    <h4 class="featured__section-title">Solução</h4>
+                                    <p class="featured__description">
+                                        Uma plataforma SaaS ponta a ponta com acesso multiplataforma (Web e aplicativo
+                                        mobile via Capacitor) que unifica o ecossistema. Permite gerenciar avisos,
+                                        reclamações, encomendas, reservas financeiras, fluxo de caixa (contas a
+                                        pagar/receber) e inventário de forma centralizada e segura.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Arquitetura</h4>
+                                    <p class="featured__description">
+                                        O backend é estruturado em módulos independentes com NestJS, utilizando injeção
+                                        de dependência estrita para garantir manutenibilidade. A persistência de dados
+                                        utiliza PostgreSQL no Supabase, com segurança baseada em RLS (Row Level
+                                        Security) e controle de acesso granular de múltiplos escopos (unidade, bloco,
+                                        condomínio). O processamento assíncrono de e-mails, relatórios e notificações é
+                                        orquestrado via filas no Redis para isolar gargalos.
+                                    </p>
+                                </div>
+
+                                <div class="featured__decisions">
+                                    <h4 class="featured__section-title">Desafios Técnicos & Decisões Arquiteturais</h4>
+                                    <ul class="featured__decisions-list">
+                                        <li><strong>Desafio (Isolamento Multi-Tenant):</strong> Impedir cruzamento de
+                                            dados sensíveis entre diferentes condomínios na mesma base relacional de
+                                            forma escalável.</li>
+                                        <li><strong>Decisão:</strong> Implementei uma estratégia de Tenant
+                                            Identification baseada em headers HTTPS nas requisições. O NestJS utiliza
+                                            interceptors dinâmicos para injetar o contexto de tenant nas conexões do
+                                            pool do Supabase, isolando os dados de forma lógica a nível de aplicação.
+                                        </li>
+                                        <li><strong>Desafio (Comunicação Ativa):</strong> Manter moradores atualizados
+                                            sem forçar o uso constante do aplicativo móvel.</li>
+                                        <li><strong>Decisão:</strong> Integrei a API oficial do WhatsApp Business
+                                            conectada a webhooks e filas do Redis. Notificações importantes (como
+                                            chegada de encomendas e boletos) são disparadas assincronamente pelo Worker
+                                            sem consumir recursos da API principal.</li>
                                     </ul>
-                                    <a class="projects__button" href="https://github.com/DayMartin/ArvoreDecisao">Ver
-                                        código no GitHub <i class="ri-arrow-right-line"></i></a>
                                 </div>
-                                <!-- Swiper pagination -->
-                                <div class="swiper-pagination"></div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Resultado</h4>
+                                    <p class="featured__description">
+                                        Plataforma SaaS operando em produção com estabilidade completa. O processamento
+                                        assíncrono garantiu um tempo médio de resposta de API abaixo de 80ms, e a
+                                        automatização via WhatsApp reduziu a perda de informações de encomendas em mais
+                                        de 90%.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="featured__visual">
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/full/dindom.png" alt="Plataforma Dindom">
+                                </div>
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/arquitetura.png" alt="Plataforma Dindom">
+                                </div>
+                                <div
+                                    style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                                    <h4 class="featured__section-title" style="margin-bottom: 0.75rem;">Pontos Fortes da
+                                        Solução</h4>
+                                    <ul
+                                        style="display:flex; flex-direction:column; gap:0.5rem; font-size:var(--small-font-size);">
+                                        <li>• Arquitetura modular robusta e altamente testável no backend.</li>
+                                        <li>• Reaproveitamento de base React Web para mobile via Capacitor, otimizando
+                                            custos e tempo de feature delivery.</li>
+                                        <li>• Infraestrutura leve conteinerizada em Docker, facilitando deploys
+                                            horizontais.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CASE 2: SISTEMA DE RASTREAMENTO TEMPO REAL -->
+                    <div class="card">
+                        <div class="featured__header"
+                            style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                            <div>
+                                <span class="badge badge--cyan">Arquitetura de Mensageria</span>
+                                <h2
+                                    style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Rastreamento de Veículos em Tempo Real
+                                </h2>
+                                <p
+                                    style="color: var(--second-color); font-family: var(--code-font); font-size: var(--small-font-size); margin-top: 0.25rem;">
+                                    Next.js • NestJS • Golang • Apache Kafka • WebSockets • MongoDB • Google Maps API •
+                                    Docker
+                                </p>
+                            </div>
+                            <a href="https://github.com/DayMartin/TrajetoRotas/" target="_blank"
+                                class="button button--secondary button--small">
+                                <i class="ri-github-line"></i> Analisar Repositório
+                            </a>
+                        </div>
+
+                        <div class="featured__content grid">
+                            <div class="featured__info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div>
+                                    <h4 class="featured__section-title">Problema</h4>
+                                    <p class="featured__description">
+                                        Monitorar frotas veiculares em trânsito com atualizações lentas gera atrasos e
+                                        relatórios inconsistentes para operadores de logística. Realizar polling HTTP
+                                        frequente gera sobrecarga nos servidores e falha em renderizar movimentações
+                                        fluidas no mapa do painel de monitoramento.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Solução</h4>
+                                    <p class="featured__description">
+                                        Construção de uma arquitetura altamente distribuída que simula o tráfego de
+                                        frotas enviando coordenadas geográficas de forma contínua para um microsserviço
+                                        de recepção, transmitindo-as instantaneamente via WebSockets para painéis web
+                                        enriquecidos com a API do Google Maps.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Arquitetura</h4>
+                                    <p class="featured__description">
+                                        Um microsserviço de simulação em Golang gera e envia coordenadas geográficas
+                                        concorrentemente para tópicos do Apache Kafka. O broker distribui essas
+                                        mensagens de forma ordenada para um consumidor NestJS. A API do NestJS persiste
+                                        o histórico de rotas em um banco de dados MongoDB (ideal para escrita rápida) e
+                                        replica as localizações para o frontend Next.js por meio de uma conexão
+                                        persistente WebSocket.
+                                    </p>
+                                </div>
+
+                                <div class="featured__decisions">
+                                    <h4 class="featured__section-title">Desafios Técnicos & Decisões Arquiteturais</h4>
+                                    <ul class="featured__decisions-list">
+                                        <li><strong>Desafio (Concorrência e Escrita Concorrente):</strong> Processar
+                                            milhares de atualizações de localização simultâneas sem perder ordem de
+                                            pacotes.</li>
+                                        <li><strong>Decisão:</strong> Utilizei o Apache Kafka como barramento de
+                                            mensagens por causa do seu design baseado em partições com garantia de
+                                            ordenação de logs de commits. O simulador em Go aproveitou canais
+                                            concorrentes nativos da linguagem para maximizar o throughput.</li>
+                                        <li><strong>Desafio (Conexão persistente leve):</strong> Evitar gargalos no
+                                            servidor ao manter centenas de telas conectadas em tempo real.</li>
+                                        <li><strong>Decisão:</strong> Adoção de WebSockets puro em cima do NestJS
+                                            gateway, configurando buffers de tráfego para enviar atualizações agregadas
+                                            a cada 100ms em vez de pacotes individuais soltos.</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Resultado</h4>
+                                    <p class="featured__description">
+                                        O sistema suporta atualizações instantâneas simuladas de múltiplas frotas de
+                                        forma fluida no mapa, com entrega ordenada garantida de eventos e persistência
+                                        duradoura em MongoDB rodando inteiramente em contêineres Docker isolados.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="featured__visual">
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/full/geraciamentoRotas.png"
+                                        alt="Gerenciamento de rotas em mapa">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CASE 3: SISTEMA FINANCEIRO E COMERCIAL -->
+                    <div class="card">
+                        <div class="featured__header"
+                            style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                            <div>
+                                <span class="badge badge--pink">Segurança & Normalização</span>
+                                <h2
+                                    style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Sistema Financeiro e Comercial Integrado
+                                </h2>
+                                <p
+                                    style="color: var(--second-color); font-family: var(--code-font); font-size: var(--small-font-size); margin-top: 0.25rem;">
+                                    TypeScript • Node.js • Express • React • MySQL • JWT Authentication • Axios
+                                </p>
+                            </div>
+                            <a href="https://github.com/DayMartin/FinanceiroNode/" target="_blank"
+                                class="button button--secondary button--small">
+                                <i class="ri-github-line"></i> Analisar Repositório
+                            </a>
+                        </div>
+
+                        <div class="featured__content grid">
+                            <div class="featured__info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div>
+                                    <h4 class="featured__section-title">Problema</h4>
+                                    <p class="featured__description">
+                                        Empresas comerciais de médio porte perdem controle financeiro ao utilizar
+                                        ferramentas dispersas de estoque, compras, comissões de vendedores e contas a
+                                        pagar/receber, gerando relatórios furados e riscos de vazamento de informações.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Solução</h4>
+                                    <p class="featured__description">
+                                        Desenvolvimento de um ERP comercial integrado, centralizando o controle de
+                                        estoque de produtos, ordens de compra, transações financeiras de vendas com
+                                        cálculo dinâmico de comissões, relatórios de fluxo de caixa e segurança através
+                                        de login por tokens JWT estruturados.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Arquitetura & Decisões</h4>
+                                    <p class="featured__description">
+                                        Backend construído com Node.js e Express, priorizando simplicidade operacional e
+                                        respostas em JSON estruturadas. Modelagem relacional estrita no MySQL para
+                                        garantir integridade referencial física das transações e evitar inconsistências
+                                        em tabelas de vendas/estoque. Autenticação e autorização stateless via JWT, onde
+                                        as credenciais de sessão não são guardadas em memória do servidor, simplificando
+                                        escalabilidade horizontal.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Resultado</h4>
+                                    <p class="featured__description">
+                                        Estrutura transacional isolada, fluxos robustos de cadastro, atualização e
+                                        exclusão lógica de registros, prevenindo deleção acidental de registros fiscais
+                                        e garantindo conciliação financeira precisa.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="featured__visual">
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/full/est1.png" alt="Interface Sistema Financeiro">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CASE 4: INTEGRAÇÃO FISCAL SOAP -->
+                    <div class="card">
+                        <div class="featured__header"
+                            style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                            <div>
+                                <span class="badge badge--pink">Integração Legada</span>
+                                <h2
+                                    style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Integração SOAP/XML Corporativa para Emissão Fiscal
+                                </h2>
+                                <p
+                                    style="color: var(--second-color); font-family: var(--code-font); font-size: var(--small-font-size); margin-top: 0.25rem;">
+                                    Node.js • Express • SOAP Protocol • XML Parsing • Axios • JSON to XML
+                                </p>
+                            </div>
+                            <span class="badge badge--pink">Deploy Tizza Tecnologia</span>
+                        </div>
+
+                        <div class="featured__content grid">
+                            <div class="featured__info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div>
+                                    <h4 class="featured__section-title">Problema</h4>
+                                    <p class="featured__description">
+                                        Faturamento manual de Notas Fiscais Eletrônicas de Serviço (NFS-e) diretamente
+                                        nos portais das prefeituras causa atrasos fiscais, redigitação burocrática de
+                                        dados de vendas e erros recorrentes de digitação que geram multas.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Solução e Engenharia</h4>
+                                    <p class="featured__description">
+                                        Módulo de background incorporado no ERP legado da Tizza Tecnologia. Ele
+                                        intercepta as ordens de faturamento geradas na API corporativa, converte a
+                                        estrutura interna de dados (JSON) no layout XML esperado pelo serviço
+                                        governamental, executa a requisição via protocolo SOAP seguro, trata a resposta
+                                        e registra a emissão no banco.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Desafios & Decisões Arquiteturais</h4>
+                                    <ul class="featured__decisions-list">
+                                        <li><strong>Instabilidade das APIs Públicas:</strong> Servidores fiscais
+                                            costumam ficar fora do ar por minutos sem aviso prévio.</li>
+                                        <li><strong>Decisão:</strong> Implementei uma fila com estratégia de Backoff
+                                            Exponencial utilizando Axios e persistência temporária no banco. Se o
+                                            servidor governamental responder com erros 500 ou timeouts, o sistema agenda
+                                            automaticamente novas tentativas de envio com intervalos crescentes,
+                                            marcando o faturamento como "Pendente" sem travar a interface do usuário.
+                                        </li>
+                                        <li><strong>Criptografia e Certificados:</strong> A requisição SOAP exige
+                                            validação com certificados digitais A1.</li>
+                                        <li><strong>Decisão:</strong> Adoção de bibliotecas seguras de assinatura XML
+                                            com chaves privadas descriptografadas em memória apenas durante o handshake
+                                            da conexão HTTP.</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Resultado</h4>
+                                    <p class="featured__description">
+                                        Faturamento automático integrado ao ERP comercial da empresa, processando
+                                        centenas de emissões semanais de forma totalmente autônoma, reduzindo o tempo de
+                                        fechamento contábil e eliminando totalmente erros de redigitação manual.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="featured__visual">
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/back/apifinanceiro.png" alt="Código API Financeira">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!--==================== CONTACT ====================-->
-        <section class="contact section" id="contact">
-            <h2 class="section__title">Contate-me</h2>
-            <span class="section__subtitle">Entrar em contato</span>
-            <div class="contact__container container grid section__border">
-                <div class="contact__content">
-                    <h3 class="contact__title">
-                        <i class="ri-chat-3-line"> Fale comigo </i>
-                    </h3>
-                    <div class="contact__info">
-                        <div class="contact__data">
-                            <span class="contact__data-title">Email</span>
-                            <span class="contact__data-info">negociosdinah@gmail.com</span>
+
+                <!-- Extra/Experimental Projects Grid -->
+                <div style="margin-top: 6rem; text-align: center; margin-bottom: 3rem;">
+                    <h2 class="section__title">Estudos Avançados e Projetos Experimentais</h2>
+                </div>
+
+                <div class="projects__gallery grid">
+                    <!-- Rota Mapeada Python -->
+                    <div class="project__card card">
+                        <div class="project__tech-bar">
+                            <span class="project__tech-tag">Python</span>
+                            <span class="project__tech-tag">Flask</span>
+                            <span class="project__tech-tag">SQLAlchemy</span>
+                            <span class="project__tech-tag">Marshmallow</span>
+                            <span class="project__tech-tag">GeoPy</span>
                         </div>
-                        <div class="contact__data">
-                            <span class="contact__data-title">Whatsapp</span>
-                            <span class="contact__data-info">+55 11 991745323</span>
-                            <!-- Insert a real number plus contry code-->
-                            <a class="contact__button" href="https://wa.me/+5511991745323">
-                                Me escreva <i class="ri-arrow-right-line"></i>
-                            </a>
+                        <h3 class="project__title">API de Rotas Geográficas com Flask</h3>
+                        <p class="project__description">
+                            Serviço de backend desenvolvido em Python para geocodificação de pontos físicos no mapa,
+                            cálculo de distâncias em coordenadas lineares e persistência relacional.
+                        </p>
+                        <ul class="project__engineering-points">
+                            <li>Uso do GeoPy para cálculos trigonométricos avançados de rotas na esfera terrestre.</li>
+                            <li>Validação e serialização de dados de entrada rigorosa utilizando Marshmallow Schemas.
+                            </li>
+                            <li>Modelagem flexível com SQLAlchemy ORM e migrações estruturadas.</li>
+                        </ul>
+                        <a href="https://github.com/DayMartin/RotaMapeada" target="_blank"
+                            class="button button--secondary button--small" style="width: max-content;">
+                            <i class="ri-github-line"></i> Analisar Repositório
+                        </a>
+                    </div>
+
+                    <!-- ML CO2 model -->
+                    <div class="project__card card">
+                        <div class="project__tech-bar">
+                            <span class="project__tech-tag">Python</span>
+                            <span class="project__tech-tag">Scikit-learn</span>
+                            <span class="project__tech-tag">Pandas</span>
+                            <span class="project__tech-tag">Regressão Linear</span>
                         </div>
-                        <div class="contact__data">
-                            <span class="contact__data-title">Linkedin</span>
-                            <span class="contact__data-info">@dinahmartins</span>
-                            <!-- Insert your brand name or profile-->
-                            <a class="contact__button" href="https://www.linkedin.com/in/dinah-martins-8334b1199/"
-                                target="_blank">
-                                Me escreva <i class="ri-arrow-right-line"></i>
-                            </a>
-                        </div>
+                        <h3 class="project__title">Modelo Preditivo de Emissões de CO₂</h3>
+                        <p class="project__description">
+                            Estudo de Inteligência Artificial e Ciência de Dados utilizando regressão linear para
+                            correlacionar o tamanho de motores veiculares com o volume médio de gás poluente expelido.
+                        </p>
+                        <ul class="project__engineering-points">
+                            <li>Engenharia de features com limpeza de dados nulos e normalização estatística usando
+                                Pandas/NumPy.</li>
+                            <li>Métricas de avaliação rigorosas: MSE (Mean Squared Error), MAE e cálculo de R²-score.
+                            </li>
+                            <li>Análise gráfica detalhada do coeficiente linear do motor e dispersão de emissões.</li>
+                        </ul>
+                        <a href="https://github.com/DayMartin/RegressaoLinear" target="_blank"
+                            class="button button--secondary button--small" style="width: max-content;">
+                            <i class="ri-github-line"></i> Analisar Repositório
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
     <!--==================== FOOTER ====================-->
     <footer class="footer">
         <div class="footer__container container">
-            <h1 class="footer__title">Dinah Martins</h1>
-            <p> Front-end Developer || Back-end Developer || </p>
-            <ul class="footer__list">
-                <li>
-                    <a class="footer__link" href="#home">Inicio</a>
-                </li>
-                <li>
-                    <a class="footer__link" href="#skills">Habilidades</a>
-                </li>
-                <li>
-                    <a class="footer__link" href="#projects">Projetos</a>
-                </li>
-            </ul>
-            <ul class="footer__social">
-                <a class="footer__social-link" href="https://www.linkedin.com/in/dinah-martins-8334b1199/"
-                    target="_blank">
-                    <i class="ri-linkedin-box-line"></i>
-                </a>
-                <a class="footer__social-link" href="https://github.com/DayMartin" target="_blank">
-                    <i class="ri-github-line"></i>
-                </a>
-                <a class="footer__social-link" href="https://dribbble.com/" target="_blank">
-                    <i class="ri-dribbble-line"></i>
-                </a>
-            </ul>
+            <h1 class="footer__logo">Dinah Martins</h1>
+            <p class="footer__subtitle">Software Engineer Senior & Cloud Architecture</p>
             <span class="footer__copy">
-                © 2024 Todos os direitos reservados
+                &#169; 2026 Dinah Martins. Todos os direitos reservados.
             </span>
         </div>
     </footer>
+
     <!--========== SCROLL UP ==========-->
-    <a class="scrollup" href="#" id="scroll-up">
+    <a href="#" class="scrollup" id="scroll-up">
         <i class="ri-arrow-up-line"></i>
     </a>
-    <!--=============== SCROLLREVEAL ===============-->
-    <script src="/assets/js/scrollreveal.min.js"></script>
-    <!--=============== SWIPER JS ===============-->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <!--=============== EMAIL JS ===============-->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" type="text/javascript"></script>
+
+    <!--=============== TRANSLATION JS ===============-->
+    <script src="assets/js/translation.js?v=1.2"></script>
+
     <!--=============== MAIN JS ===============-->
-    <script src="/assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=1.2"></script>
 </body>
 
 </html>

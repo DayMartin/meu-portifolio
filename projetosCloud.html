@@ -1,387 +1,325 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Detalhamento técnico de infraestruturas em nuvem e pipelines DevOps projetados por Dinah Martins.">
+    
     <!--=============== FAVICON ===============-->
     <link href="assets/img/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    
     <!--=============== REMIXICONS ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
-    <!--=============== SWIPER CSS ===============-->
-    <link href="/assets/css/swiper-bundle.min.css" rel="stylesheet" />
+    
     <!--=============== CSS ===============-->
-    <link href="assets/css/styles.css" rel="stylesheet" />
-    <title>Projetos</title>
+    <link href="assets/css/styles.css?v=1.2" rel="stylesheet" />
+    
+    <title>Projetos Cloud & DevOps | Dinah Martins</title>
 </head>
 
 <body>
+    <script>
+        // Apply theme immediately to prevent white flash
+        if (localStorage.getItem('selected-theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
-        <nav class="nav container">
-            <a class="nav__logo" href="#">Dinah Martins </a>
+        <nav class="nav">
+            <a href="index.html#home" class="nav__logo">
+                <span class="nav__logo-dot"></span> Dinah Martins
+            </a>
             <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list grid">
-                    <li class="nav__item">
-                        <a class="nav__link active-link" href="/index.html#home">
-                            <i class="ri-home-5-line"></i>Inicio
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="/index.html#skills">
-                            <i class="ri-trophy-line"></i> Habilidades
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="/index.html#qualification"><i
-                                class="ri-book-open-line"></i>Qualificações
-
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="/index.html#projects"><i class="ri-image-line"></i>Projetos
-
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="/index.html#certificados"><i
-                                class="ri-briefcase-line"></i>Certificados
-
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="/index.html#contact"><i class="ri-chat-3-line"></i>Contato
-
-                        </a>
-                    </li>
+                <ul class="nav__list">
+                    <li><a class="nav__link" href="index.html#home" onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Início</a></li>
+                    <li><a class="nav__link" href="index.html#about" onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Trajetória</a></li>
+                    <li><a class="nav__link" href="index.html#specialties" onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Especialidades</a></li>
+                    <li><a class="nav__link" href="index.html#dindom" onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Case Destaque</a></li>
+                    <li><a class="nav__link active-link" href="#projects" onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Projetos</a></li>
+                    <li><a class="nav__link" href="index.html#certifications" onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Certificações</a></li>
+                    <li><a class="nav__link" href="index.html#contact" onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Contato</a></li>
                 </ul>
-                <!-- Close button -->
-                <div class="nav__close" id="nav-close">
+                <div class="nav__close" id="nav-close" onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">
                     <i class="ri-close-line"></i>
                 </div>
             </div>
             <div class="nav__buttons">
+                <!-- Translation button -->
+                <i class="ri-global-line change-theme" id="lang-button" title="Change to English" onclick="const nextLang = localStorage.getItem('selected-lang') === 'en' ? 'pt' : 'en'; applyLanguage(nextLang)"></i>
                 <!-- Theme change button -->
-                <i class="ri-moon-line change-theme" id="theme-button"></i>
-                <!-- Toggle button -->
-                <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-moon-line change-theme" id="theme-button" onclick="document.body.classList.toggle('dark-theme'); if(this.classList.contains('ri-moon-line')){ this.classList.replace('ri-moon-line','ri-sun-line'); } else { this.classList.replace('ri-sun-line','ri-moon-line'); }; localStorage.setItem('selected-theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light'); localStorage.setItem('selected-icon', this.classList.contains('ri-sun-line') ? 'ri-sun-line' : 'ri-moon-line')"></i>
+                <div class="nav__toggle" id="nav-toggle" onclick="document.getElementById('nav-menu').classList.add('show-menu'); document.getElementById('header').style.pointerEvents='auto'">
                     <i class="ri-menu-4-line"></i>
                 </div>
             </div>
         </nav>
     </header>
+
     <!--==================== MAIN ====================-->
-    <main class="main">
-        <!--==================== PROJECTS ====================-->
-        <section class="projects section" id="projects">
-            <h2 class="section__title">Projetos Cloud</h2>
-            <span class="section__subtitle">Arquiteturas, automações e serviços AWS</span>
-            <div class="container section__border">
-                <div class="projects__container swiper">
-                    <!--==================== PROJECTS 1 ====================-->
-                    <div class="projects__content swiper-slide">
-                        <div><span class="projects__subtitle">DevOps • Jenkins • SonarQube • Pipeline CI/CD</span>
-                            <h1 class="projects__title">Pipeline de automação com Jenkins e análise de qualidade</h1>
-                            <p class="projects__title">Arquitetura DevOps implantada em ambiente corporativo para
-                                automatizar etapas de build, validação e análise de qualidade de código.</p>
-                            <p class="projects__title">O projeto integra Jenkins e SonarQube para apoiar entregas mais
-                                seguras, com inspeção automatizada de bugs, vulnerabilidades, code smells e padronização
-                                antes da publicação.</p>
-                            <p class="projects__title">Demonstra conhecimento em CI/CD, automação de processos,
-                                qualidade de software e sustentação de ambientes de desenvolvimento.</p>
-                        </div>
-                        <img alt="projects image" class="projects__img2" src="/assets/img/devOps/devOps2.jpeg"
-                            style="width: 960px;" />
-                    </div>
-                    <!--==================== PROJECTS 1 ====================-->
-                    <div class="projects__content swiper-slide">
-                        <div><span class="projects__subtitle">AWS • Auto Scaling • Load Balancer • CloudWatch</span>
-                            <h1 class="projects__title">Arquitetura escalável com balanceamento e monitoramento</h1>
-                            <p class="projects__title">Arquitetura AWS preparada para distribuir tráfego entre
-                                instâncias, monitorar recursos e aumentar ou reduzir capacidade conforme a demanda.</p>
-                            <p class="projects__title">O projeto utiliza Load Balancer, Auto Scaling e monitoramento
-                                para melhorar disponibilidade, resiliência e performance da aplicação.</p>
-                            <p class="projects__title">Demonstra entendimento de arquitetura cloud, alta
-                                disponibilidade, escalabilidade horizontal e operação de infraestrutura.</p>
-                        </div>
-                        <img alt="projects image" class="projects__img2" src="/assets/img/cloud//cloudDinah.jpeg"
-                            style="width: 960px;" />
-                    </div>
-                    <!--==================== PROJECTS 1 ====================-->
-                    <div class="projects__content swiper-slide">
-                        <div><span class="projects__subtitle">AWS EC2 • Linux • SSH • Key Pair</span>
-                            <h1 class="projects__title">Provisionamento de servidor Linux em EC2</h1>
-                            <p class="projects__title">Criação de instância EC2 Linux na AWS, configuração de acesso
-                                seguro via SSH e autenticação com chave .pem.</p>
-                            <p class="projects__title">O projeto cobre o fluxo básico de provisionamento de servidor,
-                                conexão remota, validação de acesso e preparação da máquina para uso em aplicações ou
-                                serviços.</p>
-                            <p class="projects__title">Demonstra domínio inicial de compute cloud, segurança de acesso e
-                                administração de servidores Linux.</p>
-                        </div>
-                        <img alt="projects image" class="projects__img2" src="/assets/img/cloud/criarEC2.jpeg"
-                            style="width: 800px;" />
-                    </div>
-                    <!--==================== PROJECTS 2 ====================-->
-                    <div class="projects__content swiper-slide">
-                        <div><span class="projects__subtitle">AWS EC2 • Windows Server • RDP • Key Pair</span>
-                            <h1 class="projects__title">Provisionamento de servidor Windows em EC2</h1>
-                            <p class="projects__title">Criação de instância EC2 Windows na AWS com acesso remoto via
-                                RDP, utilizando chave .pem para descriptografar a senha inicial da máquina.</p>
-                            <p class="projects__title">O projeto demonstra o processo de disponibilização de um ambiente
-                                Windows Server em nuvem, incluindo conexão, autenticação e validação de acesso.</p>
-                            <p class="projects__title">Demonstra conhecimento em compute cloud, administração remota e
-                                configuração de ambientes Windows na AWS.</p>
-                        </div>
-                        <img alt="projects image" class="projects__img2" src="/assets/img/cloud/ec2wind.jpeg"
-                            style="width: 800px;" />
-                    </div>
-                    <!--==================== PROJECTS 2 ====================-->
-                    <div class="projects__content swiper-slide">
-                        <div><span class="projects__subtitle">AWS RDS • MySQL • Monitoramento</span>
-                            <h1 class="projects__title">Banco de dados gerenciado com Amazon RDS</h1>
-                            <p class="projects__title">Criação e acompanhamento de uma instância Amazon RDS com MySQL,
-                                utilizando serviço gerenciado para reduzir a complexidade de administração do banco.</p>
-                            <p class="projects__title">O projeto mostra configuração de banco relacional em nuvem,
-                                análise de métricas e acompanhamento operacional do recurso.</p>
-                            <p class="projects__title">Demonstra conhecimento em bancos gerenciados, disponibilidade,
-                                monitoramento e separação entre aplicação e camada de dados.</p>
-                        </div>
-                        <img alt="projects image" class="projects__img2" src="/assets/img/cloud/rds.png"
-                            style="width: 900px;" />
-                    </div>
-                    <!--==================== PROJECTS 2 ====================-->
-                    <div class="projects__content swiper-slide">
-                        <div><span class="projects__subtitle">AWS CloudWatch Logs • Docker • Observabilidade</span>
-                            <h1 class="projects__title">Centralização de logs de container no CloudWatch</h1>
-                            <p class="projects__title">Configuração de envio e acompanhamento de logs gerados por um
-                                container em execução na AWS.</p>
-                            <p class="projects__title">O projeto permite consultar eventos da aplicação de forma
-                                centralizada, facilitando diagnóstico de erros, auditoria técnica e acompanhamento do
-                                comportamento do serviço.</p>
-                            <p class="projects__title">Demonstra noções práticas de observabilidade, logs estruturados,
-                                operação de containers e troubleshooting em ambiente cloud.</p>
-                        </div>
-                        <img alt="projects image" class="projects__img2" src="/assets/img/cloud/logs.png"
-                            style="width: 900px;" />
-                    </div>
-                    <!--==================== PROJECTS 6 ====================-->
-                    <div class="projects__content swiper-slide">
-                        <div><span class="projects__subtitle">AWS CloudWatch • CloudWatch Agent • EC2</span>
-                            <h1 class="projects__title">Dashboard de monitoramento para recursos de EC2</h1>
-                            <p class="projects__title">Criação de painéis no CloudWatch com métricas coletadas por
-                                CloudWatch Agent instalado em uma instância EC2.</p>
-                            <p class="projects__title">O dashboard permite acompanhar indicadores de infraestrutura como
-                                uso de CPU, memória, disco e comportamento geral do servidor.</p>
-                            <p class="projects__title">Demonstra conhecimento em monitoramento operacional, coleta de
-                                métricas e análise de saúde de recursos em nuvem.</p>
-                        </div>
-                        <img alt="projects image" class="projects__img2" src="/assets/img/cloud/monit.png"
-                            style="width: 600px;" />
-                    </div>
-                    <!--==================== PROJECTS 3 ====================-->
-                    <div class="projects__content swiper-slide">
-                        <div><span class="projects__subtitle">AWS VPC • Subnets • Route Tables • NAT Gateway • Security
-                                Groups</span>
-                            <h1 class="projects__title">Arquitetura de rede privada na AWS</h1>
-                            <p class="projects__title">Construção de uma estrutura de rede na AWS com VPC, sub-redes,
-                                tabela de rotas, NAT Gateway e Security Groups.</p>
-                            <p class="projects__title">O projeto organiza recursos em redes públicas e privadas,
-                                controlando comunicação, exposição externa e regras de acesso entre componentes.</p>
-                            <p class="projects__title">Demonstra entendimento de fundamentos de networking cloud,
-                                isolamento, roteamento, segurança de rede e arquitetura de ambientes AWS.</p>
-                        </div>
-                        <img alt="projects image" class="projects__img2" src="/assets/img/cloud/vpc.jpeg"
-                            style="width: 800px;" />
-                    </div>
-                    <!--==================== PROJECTS  ====================-->
-                    <div class="projects__content swiper-slide">
-                        <div><span class="projects__subtitle">AWS Auto Scaling • Launch Template • DNS</span>
-                            <h1 class="projects__title">Auto Scaling com modelo de execução</h1>
-                            <p class="projects__title">Configuração de Auto Scaling a partir de um modelo de execução
-                                para permitir criação automática de instâncias conforme necessidade.</p>
-                            <p class="projects__title">O projeto mostra o acesso aos recursos por DNS e a preparação de
-                                uma infraestrutura capaz de responder a variações de carga.</p>
-                            <p class="projects__title">Demonstra conhecimento em escalabilidade, templates de
-                                infraestrutura, disponibilidade e operação de aplicações distribuídas.</p>
-                        </div>
-                        <img alt="projects image" class="projects__img2" src="/assets/img/cloud/AutoScaling.png"
-                            style="width: 700px;" />
-                    </div>
-                    <!--==================== PROJECTS  ====================-->
-                    <div class="projects__content swiper-slide">
-                        <div><span class="projects__subtitle">AWS RDS • Banco Relacional • Operação Cloud</span>
-                            <h1 class="projects__title">Gerenciamento de banco relacional com Amazon RDS</h1>
-                            <p class="projects__title">Uso do Amazon RDS para provisionar e operar banco de dados
-                                relacional na nuvem, aproveitando recursos gerenciados da AWS.</p>
-                            <p class="projects__title">O projeto evidencia a escolha de serviços gerenciados para
-                                facilitar manutenção, monitoramento, backup e disponibilidade da camada de dados.</p>
-                            <p class="projects__title">Demonstra entendimento de arquitetura de dados em cloud e boas
-                                práticas para separar banco de dados da infraestrutura da aplicação.</p>
-                        </div>
-                        <img alt="projects image" class="projects__img2" src="/assets/img/cloud/RDS.png"
-                            style="width: 700px;" />
-                    </div>
-                    <!--==================== PROJECTS  ====================-->
-                    <div class="projects__content swiper-slide">
-                        <div><span class="projects__subtitle">AWS Lambda • API Gateway • S3 • IAM • VPC</span>
-                            <h1 class="projects__title">API serverless para manipulação de arquivos no S3</h1>
-                            <p class="projects__title">Criação de uma integração serverless utilizando API Gateway para
-                                expor endpoints conectados a funções Lambda.</p>
-                            <p class="projects__title">A solução permite executar operações de leitura, criação,
-                                atualização e exclusão de objetos no S3, com permissões controladas por IAM e recursos
-                                organizados dentro da arquitetura AWS.</p>
-                            <p class="projects__title">Demonstra conhecimento em serverless, APIs REST, controle de
-                                acesso, integração entre serviços AWS e manipulação de storage em nuvem.</p>
-                        </div>
-                        <img alt="projects image" class="projects__img2" src="/assets/img/cloud/s3lamda.jpeg"
-                            style="width: 700px;" />
-                    </div>
-                    <!--==================== PROJECTS 4 ====================-->
-                    <div class="projects__content swiper-slide">
-                        <div><span class="projects__subtitle">AWS IAM • Users • Groups • Roles • Policies</span>
-                            <h1 class="projects__title">Gestão de permissões e controle de acesso com IAM</h1>
-                            <p class="projects__title">Configuração de usuários, grupos, funções e políticas de acesso
-                                para controlar permissões dentro da AWS.</p>
-                            <p class="projects__title">O projeto demonstra aplicação do princípio de menor privilégio,
-                                separando responsabilidades e limitando o acesso aos recursos conforme a necessidade.
-                            </p>
-                            <p class="projects__title">Demonstra conhecimento em segurança cloud, identidade,
-                                autorização e governança básica de ambientes AWS.</p>
-                        </div>
-                        <img alt="projects image" class="projects__img2" src="/assets/img/cloud/politicas.png"
-                            style="width: 600px;" />
-                    </div>
-                    <!--==================== PROJECTS 5 ====================-->
-                    <div class="projects__content swiper-slide">
-                        <div><span class="projects__subtitle">AWS CloudTrail • Auditoria • Governança</span>
-                            <h1 class="projects__title">Auditoria de ações e eventos com CloudTrail</h1>
-                            <p class="projects__title">Configuração e análise do CloudTrail para rastrear ações
-                                realizadas em recursos AWS.</p>
-                            <p class="projects__title">O projeto permite acompanhar eventos de API, identificar
-                                alterações no ambiente e apoiar investigações técnicas ou auditorias de segurança.</p>
-                            <p class="projects__title">Demonstra conhecimento em governança, rastreabilidade, compliance
-                                e monitoramento de atividades administrativas na nuvem.</p>
-                        </div>
-                        <img alt="projects image" class="projects__img2" src="/assets/img/cloud/cloudTrail.png"
-                            style="width: 600px;" />
-                    </div>
-                    <!--==================== PROJECTS 7 ====================-->
-                    <div class="projects__content swiper-slide">
-                        <div><span class="projects__subtitle">AWS CloudWatch Logs • Docker • Dashboard</span>
-                            <h1 class="projects__title">Dashboard de logs gerados por container Docker</h1>
-                            <p class="projects__title">Criação de painéis no CloudWatch com base em logs gerados por um
-                                container Docker.</p>
-                            <p class="projects__title">A solução centraliza informações de execução para facilitar
-                                acompanhamento da aplicação, análise de falhas e visualização de eventos importantes.
-                            </p>
-                            <p class="projects__title">Demonstra conhecimento em observabilidade, containers, coleta de
-                                logs e operação de aplicações em ambiente AWS.</p>
-                        </div>
-                        <img alt="projects image" class="projects__img2" src="/assets/img/cloud/cloudwatchlogs.png"
-                            style="width: 600px;" />
-                    </div>
-                    <!--==================== PROJECTS  ====================-->
-                    <div class="projects__content swiper-slide">
-                        <div><span class="projects__subtitle">AWS S3 • Storage Classes • Métricas</span>
-                            <h1 class="projects__title">Monitoramento de armazenamento e classes do S3</h1>
-                            <p class="projects__title">Acompanhamento de métricas de uso do Amazon S3 e análise de
-                                objetos distribuídos por classes de armazenamento.</p>
-                            <p class="projects__title">O projeto mostra como avaliar consumo, organização e
-                                comportamento do storage para apoiar decisões de custo, retenção e performance.</p>
-                            <p class="projects__title">Demonstra conhecimento em armazenamento cloud, otimização de
-                                custos e monitoramento de recursos S3.</p>
-                        </div>
-                        <img alt="projects image" class="projects__img2" src="/assets/img/cloud/metricas.jpeg"
-                            style="width: 600px;" />
-                    </div>
-                    <!-- Swiper pagination -->
-                    <div class="swiper-pagination"></div>
+    <main class="main" style="padding-top: 8rem;">
+        <section class="section" id="projects">
+            <div class="container">
+                <div style="margin-bottom: 4rem; text-align: center;">
+                    <span class="badge">Infraestrutura & Automação</span>
+                    <h1 class="section__title" style="margin-top: 0.5rem;">Projetos Cloud & DevOps</h1>
+                    <p class="section__subtitle">Projetos de arquitetura resiliente, segurança de acessos, esteiras CI/CD e monitoramento em produção</p>
                 </div>
-            </div>
-        </section>
-        <!--==================== CONTACT ====================-->
-        <section class="contact section" id="contact">
-            <h2 class="section__title">Contate-me</h2>
-            <span class="section__subtitle">Entrar em contato</span>
-            <div class="contact__container container grid section__border">
-                <div class="contact__content">
-                    <h3 class="contact__title">
-                        <i class="ri-chat-3-line"> Fale comigo </i>
-                    </h3>
-                    <div class="contact__info">
-                        <div class="contact__data">
-                            <span class="contact__data-title">Email</span>
-                            <span class="contact__data-info">negociosdinah@gmail.com</span>
+
+                <!-- Navigation Tabs between sub-project categories -->
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 4rem; flex-wrap: wrap;">
+                    <a href="projetosFullStack.html" class="button button--secondary button--small">Full Stack & Back</a>
+                    <a href="#" class="button button--small">Cloud & DevOps</a>
+                    <a href="projetosFront.html" class="button button--secondary button--small">Sites & Front</a>
+                </div>
+
+                <!-- PROJECT FEED -->
+                <div class="grid" style="gap: 4rem;">
+                    
+                    <!-- CASE 1: PIPELINE CI/CD CON JENKINS Y SONARQUBE -->
+                    <div class="card">
+                        <div class="featured__header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                            <div>
+                                <span class="badge badge--pink">Pipeline DevOps</span>
+                                <h2 style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Pipeline Jenkins com Verificação Contínua SonarQube
+                                </h2>
+                                <p style="color: var(--second-color); font-family: var(--code-font); font-size: var(--small-font-size); margin-top: 0.25rem;">
+                                    Jenkins CI/CD • SonarQube Scanner • Quality Gates • Docker • Git Integrations
+                                </p>
+                            </div>
+                            <span class="badge badge--pink">Ambiente Corporativo (Tizza)</span>
                         </div>
-                        <div class="contact__data">
-                            <span class="contact__data-title">Whatsapp</span>
-                            <span class="contact__data-info">+55 11 991745323</span>
-                            <!-- Insert a real number plus contry code-->
-                            <a class="contact__button" href="https://wa.me/+5511991745323">
-                                Me escreva <i class="ri-arrow-right-line"></i>
-                            </a>
+
+                        <div class="featured__content grid">
+                            <div class="featured__info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div>
+                                    <h4 class="featured__section-title">Problema</h4>
+                                    <p class="featured__description">
+                                        Deploys manuais geram quebras frequentes em produção devido a branches desatualizadas, bugs ocultos introduzidos nas features e ausência total de verificação estática de segurança e cobertura mínima de testes unitários.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Solução e Arquitetura</h4>
+                                    <p class="featured__description">
+                                        Configuração de uma esteira automatizada no Jenkins que intercepta pull requests nas branches principais do repositório Git, executa testes de integração dentro de contêineres Docker efêmeros e submete o código à varredura estática profunda de vulnerabilidades e bugs no SonarQube Server.
+                                    </p>
+                                </div>
+
+                                <div class="featured__decisions">
+                                    <h4 class="featured__section-title">Decisões de Engenharia</h4>
+                                    <ul class="featured__decisions-list">
+                                        <li><strong>Estruturação de Quality Gates Rígidos:</strong> Se o código analisado apresentar débitos técnicos severos (code smells), vulnerabilidades expostas (Vulnerability Hotspots) ou cobertura de testes inferior a 80%, a esteira interrompe o pipeline e impede o deploy (Quality Gate Failure).</li>
+                                        <li><strong>Provisionamento de Build Agents Isolados:</strong> Para evitar concorrência e lentidão nas builds, configurei o Jenkins para disparar containers Docker dinâmicos como agentes de execução, que são totalmente limpos e destruídos após o término do pipeline.</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Resultado</h4>
+                                    <p class="featured__description">
+                                        Automatização e blindagem do fluxo de entrega contínua corporativo. Redução expressiva de incidentes em ambiente produtivo, maior consistência nos padrões de código e rastreabilidade total de bugs antes da fase de homologação.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="featured__visual">
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/devOps/devOps2.jpeg" alt="Dashboard Jenkins & SonarQube">
+                                </div>
+                            </div>
                         </div>
-                        <div class="contact__data">
-                            <span class="contact__data-title">Linkedin</span>
-                            <span class="contact__data-info">@dinahmartins</span>
-                            <!-- Insert your brand name or profile-->
-                            <a class="contact__button" href="https://www.linkedin.com/in/dinah-martins-8334b1199/"
-                                target="_blank">
-                                Me escreva <i class="ri-arrow-right-line"></i>
-                            </a>
+                    </div>
+
+                    <!-- CASE 2: ARQUITETURA ESCALÁVEL AWS -->
+                    <div class="card">
+                        <div class="featured__header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                            <div>
+                                <span class="badge badge--cyan">Alta Disponibilidade</span>
+                                <h2 style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Arquitetura AWS com Auto Scaling & Balanceamento de Carga
+                                </h2>
+                                <p style="color: var(--second-color); font-family: var(--code-font); font-size: var(--small-font-size); margin-top: 0.25rem;">
+                                    AWS EC2 • Elastic Load Balancer (ALB) • Auto Scaling Groups • AWS CloudWatch Alerts
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="featured__content grid">
+                            <div class="featured__info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div>
+                                    <h4 class="featured__section-title">Problema</h4>
+                                    <p class="featured__description">
+                                        Instabilidades recorrentes causadas por picos imprevisíveis de tráfego de usuários. Uma máquina EC2 única sofria gargalos de CPU e memória, resultando em lentidão geral ou indisponibilidade completa do serviço.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Solução e Arquitetura</h4>
+                                    <p class="featured__description">
+                                        Desenho e provisionamento de uma arquitetura baseada em resiliência horizontal. O tráfego de entrada é distribuído de forma equilibrada por um Application Load Balancer (ALB) que monitora a saúde das instâncias subjacentes e direciona requisições apenas para instâncias saudáveis. Um grupo de Auto Scaling dimensiona dinamicamente a quantidade de EC2 ativas com base nas métricas de telemetria coletadas.
+                                    </p>
+                                </div>
+
+                                <div class="featured__decisions">
+                                    <h4 class="featured__section-title">Decisões de Engenharia</h4>
+                                    <ul class="featured__decisions-list">
+                                        <li><strong>Políticas de Escalonamento Dinâmico por Telemetria:</strong> Configurei alarmes do AWS CloudWatch integrados ao Auto Scaling. O sistema inicia o provisionamento de novos servidores quando o uso médio de CPU ultrapassa 70% por mais de 3 minutos, e encerra servidores adicionais quando a carga média recua abaixo de 30% (otimização financeira de recursos).</li>
+                                        <li><strong>Launch Templates Versionados:</strong> Padronização do ambiente via templates de inicialização contendo imagens customizadas pré-instaladas, reduzindo o tempo de boot de novas instâncias para menos de 60 segundos.</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Resultado</h4>
+                                    <p class="featured__description">
+                                        Infraestrutura elástica tolerante a falhas capaz de suportar picos bruscos de acessos sem interrupção de serviço e com provisionamento e liberação automatizada de recursos AWS em tempo real.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="featured__visual">
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/cloud/cloudDinah.jpeg" alt="Arquitetura de Nuvem Escalável">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CASE 3: VPC NETWORKING -->
+                    <div class="card">
+                        <div class="featured__header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                            <div>
+                                <span class="badge badge--pink">Segurança de Rede</span>
+                                <h2 style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Arquitetura de Rede Privada Isolada (VPC AWS)
+                                </h2>
+                                <p style="color: var(--second-color); font-family: var(--code-font); font-size: var(--small-font-size); margin-top: 0.25rem;">
+                                    AWS VPC • Public/Private Subnets • NAT Gateway • Route Tables • Security Groups • NACLs
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="featured__content grid">
+                            <div class="featured__info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div>
+                                    <h4 class="featured__section-title">Problema</h4>
+                                    <p class="featured__description">
+                                        Exposição pública de bancos de dados relacionais e microsserviços de backend diretamente na internet, aumentando drasticamente a superfície de ataque e o risco de vazamento de dados sensíveis ou invasões.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Solução e Arquitetura</h4>
+                                    <p class="featured__description">
+                                        Projeto e execução de uma infraestrutura de rede robusta e isolada (Virtual Private Cloud). O ambiente isola a camada pública da privada.
+                                    </p>
+                                </div>
+
+                                <div class="featured__decisions">
+                                    <h4 class="featured__section-title">Decisões de Rede & Acesso</h4>
+                                    <ul class="featured__decisions-list">
+                                        <li><strong>Sub-redes Públicas vs Privadas:</strong> Apenas o Load Balancer e gateways de entrada residem em sub-redes públicas conectadas ao Internet Gateway. A API de backend e o banco de dados RDS residem em sub-redes totalmente privadas, sem endereços de IP públicos disponíveis.</li>
+                                        <li><strong>Roteamento NAT Gateway Seguro:</strong> Servidores em redes privadas que demandam atualizações externas acessam a internet estritamente de forma unidirecional através de um NAT Gateway provisionado na zona pública.</li>
+                                        <li><strong>Firewalls em Camadas (Security Groups & NACLs):</strong> Bloqueio granular de tráfego. O banco de dados MySQL no RDS aceita conexões estritamente originadas pelo grupo de segurança associado às EC2 da API, blindando a camada de persistência.</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Resultado</h4>
+                                    <p class="featured__description">
+                                        Topologia de rede em nuvem desenhada sob princípios de menor privilégio e segurança rigorosa, protegendo completamente os dados sensíveis corporativos contra invasões diretas ou varreduras de portas externas.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="featured__visual">
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/cloud/vpc.jpeg" alt="Arquitetura de VPC Privada">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CASE 4: SERVERLESS S3 HANDLER -->
+                    <div class="card">
+                        <div class="featured__header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                            <div>
+                                <span class="badge badge--cyan">Serverless Architecture</span>
+                                <h2 style="font-size: 2rem; font-weight: 800; margin-top: 0.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    API Serverless para Gestão de Arquivos no S3
+                                </h2>
+                                <p style="color: var(--second-color); font-family: var(--code-font); font-size: var(--small-font-size); margin-top: 0.25rem;">
+                                    AWS Lambda • Amazon API Gateway • Amazon S3 • AWS IAM Permissions • Python
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="featured__content grid">
+                            <div class="featured__info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div>
+                                    <h4 class="featured__section-title">Problema</h4>
+                                    <p class="featured__description">
+                                        Manter servidores ligados 24 horas por dia apenas para lidar com picos sazonais de upload, leitura e exclusão de arquivos gera custos computacionais elevados (ociosidade de EC2) e complexidade de manutenção de patches de servidores.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Solução e Arquitetura</h4>
+                                    <p class="featured__description">
+                                        Desenvolvimento de uma API REST baseada inteiramente em arquitetura serverless. O fluxo é exposto por endpoints configurados no Amazon API Gateway que invocam funções executadas sob demanda no AWS Lambda (em Python) para realizar operações de persistência e gerenciamento no bucket do Amazon S3.
+                                    </p>
+                                </div>
+
+                                <div class="featured__decisions">
+                                    <h4 class="featured__section-title">Decisões de Engenharia</h4>
+                                    <ul class="featured__decisions-list">
+                                        <li><strong>Políticas Granulares de Permissão IAM:</strong> A função Lambda assume uma Execution Role que limita suas ações especificamente às permissões `s3:GetObject`, `s3:PutObject` e `s3:DeleteObject` dentro do bucket dedicado, obedecendo ao princípio de menor privilégio.</li>
+                                        <li><strong>Presigned URLs para Alta Performance:</strong> Para downloads eficientes de grandes arquivos, a Lambda gera links temporários assinados eletronicamente e os devolve para o cliente, permitindo que a aplicação faça o download diretamente do storage S3 sem passar tráfego de dados pesado pela API Gateway.</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="featured__section-title">Resultado</h4>
+                                    <p class="featured__description">
+                                        Estrutura computacional de custo zero para recursos ociosos, escalando infinitamente e de forma totalmente gerenciada pela AWS, suportando uploads e consultas simultâneas sem latência ou perdas de arquivos.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="featured__visual">
+                                <div class="featured__img-wrapper">
+                                    <img src="assets/img/cloud/s3lamda.jpeg" alt="Arquitetura Serverless Lambda">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
     <!--==================== FOOTER ====================-->
     <footer class="footer">
         <div class="footer__container container">
-            <h1 class="footer__title">Dinah Martins</h1>
-            <p> Front-end Developer || Back-end Developer || </p>
-            <ul class="footer__list">
-                <li>
-                    <a class="footer__link" href="#home">Inicio</a>
-                </li>
-                <li>
-                    <a class="footer__link" href="#skills">Habilidades</a>
-                </li>
-                <li>
-                    <a class="footer__link" href="#projects">Projetos</a>
-                </li>
-            </ul>
-            <ul class="footer__social">
-                <a class="footer__social-link" href="https://www.linkedin.com/in/dinah-martins-8334b1199/"
-                    target="_blank">
-                    <i class="ri-linkedin-box-line"></i>
-                </a>
-                <a class="footer__social-link" href="https://github.com/DayMartin" target="_blank">
-                    <i class="ri-github-line"></i>
-                </a>
-                <a class="footer__social-link" href="https://dribbble.com/" target="_blank">
-                    <i class="ri-dribbble-line"></i>
-                </a>
-            </ul>
+            <h1 class="footer__logo">Dinah Martins</h1>
+            <p class="footer__subtitle">Software Engineer Senior & Cloud Architecture</p>
             <span class="footer__copy">
-                © 2023 Todos os direitos reservados
+                &#169; 2026 Dinah Martins. Todos os direitos reservados.
             </span>
         </div>
     </footer>
+
     <!--========== SCROLL UP ==========-->
-    <a class="scrollup" href="#" id="scroll-up">
+    <a href="#" class="scrollup" id="scroll-up">
         <i class="ri-arrow-up-line"></i>
     </a>
-    <!--=============== SCROLLREVEAL ===============-->
-    <script src="/assets/js/scrollreveal.min.js"></script>
-    <!--=============== SWIPER JS ===============-->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <!--=============== EMAIL JS ===============-->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" type="text/javascript"></script>
+
+    <!--=============== TRANSLATION JS ===============-->
+    <script src="assets/js/translation.js?v=1.2"></script>
+
     <!--=============== MAIN JS ===============-->
-    <script src="/assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=1.2"></script>
 </body>
 
 </html>

@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio de Dinah Martins - Software Engineer Senior especializada em Arquitetura de Sistemas, Cloud Computing, DevOps e desenvolvimento de produtos SaaS de ponta a ponta.">
 
     <!--=============== FAVICON ===============-->
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
@@ -12,70 +14,66 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <!--=============== SWIPER CSS ===============-->
-    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
     <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css?v=1.2">
 
-    <title>O meu orgulho de portfolio</title>
+    <title>Dinah Martins | Senior Software Engineer & Cloud Architect</title>
 </head>
 
 <body>
+    <script>
+        // Apply theme immediately to prevent white flash
+        if (localStorage.getItem('selected-theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">Dinah Martins </a>
+        <nav class="nav">
+            <a href="#home" class="nav__logo">
+                <span class="nav__logo-dot"></span> Dinah Martins
+            </a>
             <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list grid">
-
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">
-                            <i class="ri-home-5-line"></i>Inicio
-                        </a>
+                <ul class="nav__list">
+                    <li><a href="#home" class="nav__link active-link"
+                            onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Início</a>
                     </li>
-
-                    <li class="nav__item">
-                        <a href="#skills" class="nav__link">
-                            <i class="ri-trophy-line"></i> Habilidades
-                        </a>
-
+                    <li><a href="#about" class="nav__link"
+                            onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Trajetória</a>
                     </li>
-                    <li class="nav__item">
-                        <a href="#qualification" class="nav__link"><i class="ri-book-open-line"></i>Qualificações
-
-                        </a>
-
+                    <li><a href="#specialties" class="nav__link"
+                            onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Especialidades</a>
                     </li>
-                    <li class="nav__item">
-                        <a href="#projects" class="nav__link"><i class="ri-image-line"></i>Projetos
-
-                        </a>
-
+                    <li><a href="#dindom" class="nav__link"
+                            onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Case
+                            Destaque</a></li>
+                    <li><a href="#projects" class="nav__link"
+                            onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Projetos</a>
                     </li>
-                    <li class="nav__item">
-                        <a href="#certificados" class="nav__link"><i class="ri-briefcase-line"></i>Certificados
-
-                        </a>
-
+                    <li><a href="#github-section" class="nav__link"
+                            onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Arquitetura
+                            & Código</a></li>
+                    <li><a href="#certifications" class="nav__link"
+                            onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Certificações</a>
                     </li>
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link"><i class="ri-chat-3-line"></i>Contato
-
-                        </a>
-
+                    <li><a href="#contact" class="nav__link"
+                            onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">Contato</a>
                     </li>
                 </ul>
-                <!-- Close button -->
-                <div class="nav__close" id="nav-close">
+                <div class="nav__close" id="nav-close"
+                    onclick="document.getElementById('nav-menu').classList.remove('show-menu'); document.getElementById('header').style.pointerEvents='none'">
                     <i class="ri-close-line"></i>
                 </div>
             </div>
             <div class="nav__buttons">
+                <!-- Translation button -->
+                <i class="ri-global-line change-theme" id="lang-button" title="Change to English" onclick="const nextLang = localStorage.getItem('selected-lang') === 'en' ? 'pt' : 'en'; applyLanguage(nextLang)"></i>
                 <!-- Theme change button -->
-                <i class="ri-moon-line change-theme" id="theme-button"></i>
-
-                <!-- Toggle button -->
-                <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-moon-line change-theme" id="theme-button" onclick="document.body.classList.toggle('dark-theme'); if(this.classList.contains('ri-moon-line')){ this.classList.replace('ri-moon-line','ri-sun-line'); } else { this.classList.replace('ri-sun-line','ri-moon-line'); }; localStorage.setItem('selected-theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light'); localStorage.setItem('selected-icon', this.classList.contains('ri-sun-line') ? 'ri-sun-line' : 'ri-moon-line')"></i>
+                <div class="nav__toggle" id="nav-toggle"
+                    onclick="document.getElementById('nav-menu').classList.add('show-menu'); document.getElementById('header').style.pointerEvents='auto'">
                     <i class="ri-menu-4-line"></i>
                 </div>
             </div>
@@ -84,24 +82,27 @@
 
     <!--==================== MAIN ====================-->
     <main class="main">
-        <!--==================== HOME ====================-->
+        <!--==================== HERO SECTION ====================-->
         <section class="home section" id="home">
-            <div class="home__container container grid section__border">
-                <div class="home__data grid">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <div class="home__tagline">
+                        <span class="badge">Founding Engineer Perfil</span>
+                        <span class="badge badge--cyan">Full Cycle Developer</span>
+                    </div>
                     <h1 class="home__title">
-                        Oi, sou Dinah <br>
-                        Desenvolvedora<br>
-
+                        Eu transformo problemas complexos em produtos SaaS escaláveis.
                     </h1>
-
-                    <div class="home__blob grid">
-                        <div class="home__perfil">
-                            <img src="/assets/img/meu_rosto_1-removebg-preview.png" alt="home perfil">
-                        </div>
-                        <img src="/assets/img/shape-wawes.svg" alt="" class="home__shape-wawes">
-                        <img src="/assets/img/shape-circle.svg" alt="" class="home__shape-circle">
-
-                        <a href="/assets/img/DinahDev.pdf" download>Download do meu currículo </a>
+                    <p class="home__description">
+                        Software Engineer especializada em <strong>arquitetura de sistemas</strong>, <strong>cloud
+                            computing</strong> e <strong>DevOps</strong>. Construo aplicações robustas do zero e as
+                        opero com excelência em ambientes de nuvem de alta disponibilidade.
+                    </p>
+                    <div class="home__actions">
+                        <a href="#dindom" class="button">Ver Case Destaque <i class="ri-arrow-right-line"></i></a>
+                        <a href="https://github.com/DayMartin" target="_blank" class="button button--secondary">
+                            <i class="ri-github-line"></i> Analisar Código
+                        </a>
                     </div>
                     <ul class="home__social">
                         <li>
@@ -110,674 +111,763 @@
                                 <i class="ri-linkedin-box-line"></i>
                             </a>
                         </li>
-                        <a href="https://github.com/DayMartin" target="_blank" class="home__social-link"> <i
-                                class="ri-github-line"></i>
-                        </a>
-
-                        <a href="#" target="_blank" class="home__social-link"> <i class="ri-dribbble-line"></i>
-                        </a>
+                        <li>
+                            <a href="https://github.com/DayMartin" target="_blank" class="home__social-link">
+                                <i class="ri-github-line"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="assets/img/DinahDev.pdf" download class="home__social-link"
+                                title="Download Currículo">
+                                <i class="ri-file-download-line"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-                <!--==================== HOME INFO 1 ====================-->
-                <div class="home__info">
-                    <div>
-                        <h3 class="home__info-tittle">
-                            BIOGRAFIA
-                        </h3>
-                        <p class="home__info-description">
-                            || Desenvolvedora de software e DevOps ||
-                        </p>
-                    </div>
 
-                    <div>
-                        <h3 class="home__info-tittle">
-                            CONTATO
-                        </h3>
-                        <p class="home__info-description">
-                            São Paulo, Brazil <br>
-                            negociosdinah@gmail.com <br>
-                            +55 11 991745323 <br>
-                        </p>
-                    </div>
-
-                    <div>
-                        <h3 class="home__info-tittle">
-                            SERVIÇOS
-                        </h3>
-                        <p class="home__info-description">
-                            Back-end <br>
-                            Front-end <br>
-                            DevOps <br>
-                            Cloud <br>
-                        </p>
-                    </div>
-                </div>
-                <!--==================== HOME INFO 2 ====================-->
-                <div class="home__info">
-                    <div>
-                        <h3 class="home__info-title">
-                            ANOS DE EXPERIÊNCIA
-                        </h3>
-
-                        <p class="home__info-number">
-                            3+
-                        </p>
-                    </div>
-
-                    <div>
-                        <h3 class="home__info-title">
-                            PROJETOS COMPLETADOS
-                        </h3>
-
-                        <p class="home__info-number">
-                            20+
-                        </p>
-                    </div>
-
-                    <div>
-                        <h3 class="home__info-title">
-                            EMPRESAS TRABALHADAS
-                        </h3>
-
-                        <p class="home__info-number">
-                            3+
-                        </p>
-
+                <div class="home__visual">
+                    <div class="home__blob-wrapper">
+                        <div class="home__avatar-card">
+                            <div class="home__avatar-img-container">
+                                <img src="assets/img/meu_rosto_1-removebg-preview.png" alt="Dinah Martins">
+                            </div>
+                            <div class="home__avatar-info">
+                                <span class="home__avatar-name">Dinah Martins</span>
+                                <span class="home__avatar-status">
+                                    <span class="home__avatar-status-dot"></span> Ativa para Projetos
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!--==================== SKILLS ====================-->
-        <section class="skills section" id="skills">
-            <h2 class="section__title">Habilidades</h2>
-            <span class="section__subtitle">Minhas habilidades favoritas</span>
-
-            <div class="skills__container container grid section__border">
-                <!--==================== SKILLS 1 ====================-->
-                <div class="skills__content">
-                    <h3 class="skills__title">
-                        <i class="ri-braces-line"></i> Desenvolvimento
-                    </h3>
-
-                    <div class="skills__info">
-                        <div class="skills__data">
-                            <div class="skills__blob">
-                                <img src="/assets/img/python-5.svg" alt="skills image">
-                            </div>
-                            <h3 class="skills__name">Python</h3>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__blob">
-                                <img src="/assets/img/logo-javascript.svg" alt="skills image">
-                            </div>
-                            <h3 class="skills__name">JavaScript</h3>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__blob">
-                                <img src="/assets/img/nodejs.svg" alt="skills image">
-                            </div>
-                            <h3 class="skills__name">NodeJs</h3>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__blob">
-                                <img src="/assets/img/typescript.svg" alt="skills image">
-                            </div>
-                            <h3 class="skills__name">TypeScript</h3>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__blob">
-                                <img src="/assets/img/google-cloud-1.svg" alt="skills image">
-                            </div>
-                            <h3 class="skills__name">Google</h3>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__blob">
-                                <img src="/assets/img/aws-2.svg" alt="skills image">
-                            </div>
-                            <h3 class="skills__name">AWS</h3>
-                        </div>
-
+        <!--==================== NUMBERS OF IMPACT ====================-->
+        <section class="numbers section">
+            <div class="numbers__container container">
+                <div class="numbers__grid grid card">
+                    <div class="number__card">
+                        <h2 class="number__value">5+</h2>
+                        <p class="number__label">Anos de Experiência</p>
                     </div>
-                </div>
-                <!--==================== SKILLS 2 ====================-->
-                <div class="skills__content">
-                    <h3 class="skills__title">
-                        <i class="ri-pantone-line"></i> Desenvolvimento
-                    </h3>
-                    <div class="skills__info">
-                        <div class="skills__data">
-                            <div class="skills__blob">
-                                <img src="/assets/img/jenkins.svg" alt="skills image">
-                            </div>
-                            <h3 class="skills__name">Jenkins</h3>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__blob">
-                                <img src="/assets/img/sonarqube2.png" alt="skills image">
-                            </div>
-                            <h3 class="skills__name">SonarQube</h3>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__blob">
-                                <img src="/assets/img/kubernets.svg" alt="skills image">
-                            </div>
-                            <h3 class="skills__name">Kubernets</h3>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__blob">
-                                <img src="/assets/img/docker.svg" alt="skills image">
-                            </div>
-                            <h3 class="skills__name">Docker</h3>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__blob">
-                                <img src="/assets/img/mongodb.svg" alt="skills image">
-                            </div>
-                            <h3 class="skills__name">MongoDB</h3>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__blob">
-                                <img src="/assets/img/mysql.svg" alt="skills image">
-                            </div>
-                            <h3 class="skills__name">MySQL</h3>
-                        </div>
-
-
-
+                    <div class="number__card">
+                        <h2 class="number__value">20+</h2>
+                        <p class="number__label">Sistemas Entregues</p>
                     </div>
-                </div>
-        </section>
-
-        <!--==================== QUALIFICATION ====================-->
-        <section class="qualification section" id="qualification">
-            <h2 class="section__title">Experiência e Educação</h2>
-            <span class="section__subtitle">Até o momento</span>
-
-            <div class="qualification__container container grid section__border">
-                <!--==================== QUALIFICATION 1 ====================-->
-                <div class="qualification__content">
-                    <h3 class="qualification__title">
-                        <i class="ri-pencil-ruler-2-line"></i> Educação
-                    </h3>
-
-                    <div class="qualification__info">
-                        <div>
-                            <h3 class="qualification__name">
-                                Análise e desenvolvimento de sistemas
-                            </h3>
-                            <span class="qualification__country">São Judas Tadeu - Universidade</span>
-                            <span class="qualification__year">2022 - 2024</span>
-                        </div>
+                    <div class="number__card">
+                        <h2 class="number__value">14+</h2>
+                        <p class="number__label">Certificações</p>
                     </div>
-
-                    <!--==================== QUALIFICATION 2 ====================-->
-                    <div class="qualification__content">
-                        <h3 class="qualification__title">
-                            <i class="ri-building-line"></i> Experiência
-                        </h3>
-
-                        <div class="qualification__info">
-                            <div>
-                                <h3 class="qualification__name">
-                                    FullStack Developer || DevOps
-                                </h3>
-                                <span class="qualification__country">Tizza Tecnologia</span>
-                                <span class="qualification__year">2 anos</span>
-                            </div>
-
-                            <div>
-                                <h3 class="qualification__name">
-                                    Analista de atendimento Senior
-                                </h3>
-                                <span class="qualification__country">Volkswagen</span>
-                                <span class="qualification__year">2 anos e 9 meses</span>
-                            </div>
-                            <div>
-                                <h3 class="qualification__name">
-                                    Desenvolvedora de software autônoma
-                                </h3>
-                                <span class="qualification__country">Tapeçaria Santos</span>
-                                <span class="qualification__year">2 anos</span>
-                            </div>
-                        </div>
+                    <div class="number__card">
+                        <h2 class="number__value">E2E</h2>
+                        <p class="number__label">SaaS construídos do zero</p>
                     </div>
-                </div>
-                <img src="/assets/img/shape-circle.svg" alt="qualification image" class="qualification__img">
-        </section>
-
-        <!--==================== SERVICES ====================-->
-        <section class="services section" id="services">
-            <h2 class="section__title">Serviços </h2>
-            <span class="section__subtitle"> O que eu ofereço</span>
-
-            <div class="services__container container grid section__border">
-                <div class="services__card">
-                    <i class="ri-code-line"></i>
-
-                    <h2 class="services__title">
-                        FullStack <br>
-                    </h2>
-
-                    <p class="services__description">
-                        Python || Javascript
-                        MongoDB || MySQL
-                        API REST || GraphQL
-                        NodeJS || Angular
-                    </p>
-
-                    <div class="services__border"></div>
-                </div>
-
-                <div class="services__card">
-                    <i class="ri-layout-4-line"></i>
-
-                    <h2 class="services__title">
-                        Cloud <br>
-                    </h2>
-
-                    <p class="services__description">
-                        AWS ||
-                        Google Cloud ||
-                        Azure
-
-                    </p>
-
-                    <div class="services__border"></div>
-                </div>
-
-                <div class="services__card">
-                    <i class="ri-quill-pen-line"></i>
-
-                    <h2 class="services__title">
-                        Automação <br>
-                    </h2>
-
-                    <p class="services__description">
-                        Docker || Kubernetes ||
-                        GitHub ||
-                        Jenkins || SonarQube
-                    </p>
-
-                    <div class="services__border"></div>
                 </div>
             </div>
-
         </section>
 
-        <!--==================== PROJECTS ====================-->
+        <!--==================== SOBRE MIM ====================-->
+        <section class="about section" id="about">
+            <h2 class="section__title">Trajetória e Visão</h2>
+            <span class="section__subtitle">A engenharia por trás do código</span>
+            <div class="about__container container grid section__border">
+                <div class="about__text">
+                    <p class="about__p">
+                        Não sou apenas uma desenvolvedora que escreve código isolado. Atuo na intersecção entre
+                        <strong>negócio, engenharia de software e infraestrutura de cloud</strong>. Meu perfil é o de
+                        uma <strong>Founding Engineer</strong>: aquela profissional com autonomia e capacidade técnica
+                        para tirar um produto SaaS complexo do papel, projetar a arquitetura lógica, modelar o banco de
+                        dados, automatizar as esteiras de deploy (CI/CD) e colocá-lo em produção de forma segura.
+                    </p>
+                    <p class="about__p">
+                        Minha jornada é marcada pela <strong>capacidade de execução e mentalidade sistêmica</strong>.
+                        Com vasta experiência prática na construção de aplicações complexas — transitando de integrações
+                        fiscais corporativas legadas a sistemas em tempo real orientados a eventos —, eu transformo
+                        problemas operacionais e de negócios em softwares estruturados, modulares e de fácil manutenção.
+                    </p>
+                    <p class="about__highlight">
+                        "Arquitetura de software não é sobre prever o futuro, é sobre construir fundações flexíveis o
+                        suficiente para que o software possa evoluir junto com o negócio de forma barata e sustentável."
+                    </p>
+                </div>
+
+                <div class="about__visual-grid grid">
+                    <div class="about__stat-card card">
+                        <span class="about__stat-icon"><i class="ri-rocket-line"></i></span>
+                        <h3 class="about__stat-title">Foco em Produto</h3>
+                        <p class="about__stat-desc">Forte alinhamento técnico com as dores de negócio, garantindo que
+                            cada decisão arquitetural gere valor operacional direto.</p>
+                    </div>
+                    <div class="about__stat-card card">
+                        <span class="about__stat-icon"><i class="ri-gradienter-line"></i></span>
+                        <h3 class="about__stat-title">Autonomia Técnica</h3>
+                        <p class="about__stat-desc">Capacidade de atuar de forma totalmente autônoma, projetando desde
+                            APIs de alta performance até servidores cloud isolados.</p>
+                    </div>
+                    <div class="about__stat-card card">
+                        <span class="about__stat-icon"><i class="ri-shield-check-line"></i></span>
+                        <h3 class="about__stat-title">Múltiplas Camadas</h3>
+                        <p class="about__stat-desc">Domínio completo do stack de engenharia: frontend performático,
+                            backend isolado por escopo, barramento de eventos, cache e bancos relacionais.</p>
+                    </div>
+                    <div class="about__stat-card card">
+                        <span class="about__stat-icon"><i class="ri-pulse-line"></i></span>
+                        <h3 class="about__stat-title">Evolução Contínua</h3>
+                        <p class="about__stat-desc">Capacidade de absorver novas stacks com rapidez absurda, reduzindo a
+                            fricção no desenvolvimento técnico de novas features.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== ARCHITECTURE & SPECIALTIES ====================-->
+        <section class="specialties section" id="specialties">
+            <h2 class="section__title">Arquitetura & Especialidades</h2>
+            <span class="section__subtitle">Minha profundidade técnica e espectro de atuação</span>
+            <div class="specialties__container container grid section__border">
+                <div class="specialties__grid grid">
+                    <!-- Backend -->
+                    <div class="specialty__card card">
+                        <div class="specialty__icon-container">
+                            <i class="ri-braces-line"></i>
+                        </div>
+                        <h3 class="specialty__title">Backend Engineering</h3>
+                        <p class="specialty__desc">
+                            Desenvolvimento de APIs robustas, escaláveis e fortemente estruturadas. Modelagem de
+                            domínios, isolamento de lógica, controle fino de autenticação (JWT) e autorização granular
+                            (RBAC).
+                        </p>
+                        <div class="specialty__stack">
+                            <span class="specialty__tag">Python</span>
+                            <span class="specialty__tag">NestJS</span>
+                            <span class="specialty__tag">Node.js</span>
+                            <span class="specialty__tag">TypeScript</span>
+                            <span class="specialty__tag">Django</span>
+                            <span class="specialty__tag">FastAPI</span>
+                        </div>
+                    </div>
+
+                    <!-- Cloud -->
+                    <div class="specialty__card card">
+                        <div class="specialty__icon-container">
+                            <i class="ri-cloud-line"></i>
+                        </div>
+                        <h3 class="specialty__title">Cloud Architecture</h3>
+                        <p class="specialty__desc">
+                            Estruturação de redes e ambientes seguros em nuvem. Configuração de VPCs, isolamento de
+                            sub-redes públicas/privadas, Load Balancers, Auto Scaling e provisionamento de instâncias e
+                            storages gerenciados.
+                        </p>
+                        <div class="specialty__stack">
+                            <span class="specialty__tag">AWS</span>
+                            <span class="specialty__tag">Google Cloud</span>
+                            <span class="specialty__tag">VPC & IAM</span>
+                            <span class="specialty__tag">EC2 & RDS</span>
+                            <span class="specialty__tag">Serverless Lambda</span>
+                        </div>
+                    </div>
+
+                    <!-- DevOps -->
+                    <div class="specialty__card card">
+                        <div class="specialty__icon-container">
+                            <i class="ri-git-merge-line"></i>
+                        </div>
+                        <h3 class="specialty__title">DevOps & CI/CD</h3>
+                        <p class="specialty__desc">
+                            Automação completa do ciclo de vida de deploys. Criação de esteiras CI/CD automatizadas,
+                            conteinerização de serviços, análise estática de qualidade de código e conformidade de
+                            vulnerabilidades.
+                        </p>
+                        <div class="specialty__stack">
+                            <span class="specialty__tag">Docker</span>
+                            <span class="specialty__tag">Kubernetes</span>
+                            <span class="specialty__tag">Jenkins</span>
+                            <span class="specialty__tag">GitHub Actions</span>
+                            <span class="specialty__tag">SonarQube</span>
+                        </div>
+                    </div>
+
+                    <!-- Databases -->
+                    <div class="specialty__card card">
+                        <div class="specialty__icon-container">
+                            <i class="ri-database-2-line"></i>
+                        </div>
+                        <h3 class="specialty__title">Databases & Storage</h3>
+                        <p class="specialty__desc">
+                            Modelagem relacional e estruturação NoSQL. Otimização de queries, controle transacional
+                            rigoroso, isolamento lógico de inquilinos e cache estratégico para aliviar chamadas no
+                            banco.
+                        </p>
+                        <div class="specialty__stack">
+                            <span class="specialty__tag">PostgreSQL</span>
+                            <span class="specialty__tag">Supabase</span>
+                            <span class="specialty__tag">MySQL</span>
+                            <span class="specialty__tag">MongoDB</span>
+                            <span class="specialty__tag">Redis</span>
+                        </div>
+                    </div>
+
+                    <!-- Integrations -->
+                    <div class="specialty__card card">
+                        <div class="specialty__icon-container">
+                            <i class="ri-shuffle-line"></i>
+                        </div>
+                        <h3 class="specialty__title">Mensageria & Integrações</h3>
+                        <p class="specialty__desc">
+                            Comunicação distribuída assíncrona orientada a eventos. Integrações de barramentos de
+                            mensagens, canais bi-direcionais (WebSockets) e consumo automático de APIs legadas e de
+                            comunicação.
+                        </p>
+                        <div class="specialty__stack">
+                            <span class="specialty__tag">Kafka</span>
+                            <span class="specialty__tag">RabbitMQ</span>
+                            <span class="specialty__tag">WebSockets</span>
+                            <span class="specialty__tag">SOAP (XML)</span>
+                            <span class="specialty__tag">WhatsApp API</span>
+                        </div>
+                    </div>
+
+                    <!-- Frontend -->
+                    <div class="specialty__card card">
+                        <div class="specialty__icon-container">
+                            <i class="ri-layout-line"></i>
+                        </div>
+                        <h3 class="specialty__title">Frontend Engineering</h3>
+                        <p class="specialty__desc">
+                            Desenvolvimento de interfaces rápidas, otimizadas para SEO e focadas em usabilidade.
+                            Arquitetura orientada a componentes modulares reaproveitáveis e compilação híbrida para
+                            plataformas mobile.
+                        </p>
+                        <div class="specialty__stack">
+                            <span class="specialty__tag">React</span>
+                            <span class="specialty__tag">Next.js</span>
+                            <span class="specialty__tag">Angular</span>
+                            <span class="specialty__tag">Vue.js</span>
+                            <span class="specialty__tag">Capacitor</span>
+                            <span class="specialty__tag">SEO Best Practices</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== PROJETO DESTAQUE (DINDOM) ====================-->
+        <section class="featured-project section" id="dindom">
+            <h2 class="section__title">Projeto Destaque</h2>
+            <span class="section__subtitle">O case SaaS que consolida minha arquitetura técnica</span>
+            <div class="featured__container container section__border">
+                <div class="featured__card card">
+                    <div class="featured__header">
+                        <div class="featured__title-area">
+                            <span class="badge badge--pink">Case SaaS Comercial</span>
+                            <h3>Dindom</h3>
+                            <p class="featured__description">Plataforma SaaS Multi-tenant integrada para Gestão
+                                Condominial Completa</p>
+                        </div>
+                        <div class="featured__link-area">
+                            <a href="https://meudindom.com.br" target="_blank" class="button button--small">
+                                Visitar Landing Page <i class="ri-external-link-line"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="featured__content grid">
+                        <div class="featured__info">
+                            <div>
+                                <h4 class="featured__section-title">Problema</h4>
+                                <p class="featured__description">
+                                    A administração condominial e a rotina operacional sofrem com a pulverização de
+                                    dados e falhas severas de comunicação. Síndicos, moradores e administradoras
+                                    dependem de múltiplos canais desconexos, resultando em dados financeiros soltos,
+                                    problemas com permissões de acesso e gargalos operacionais no dia a dia.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h4 class="featured__section-title">Solução e Engenharia</h4>
+                                <p class="featured__description">
+                                    Uma plataforma SaaS ponta a ponta que centraliza as rotinas em módulos financeiros
+                                    (contas a pagar, receber, fluxo de caixa), comunicação ativa e agendamentos. A
+                                    aplicação conta com uma versão Web Administrativa altamente responsiva e um
+                                    aplicativo móvel compilado nativamente.
+                                </p>
+                            </div>
+
+                            <div class="featured__blocks">
+                                <div class="featured__block-item">
+                                    <h4>Isolamento Lógico (Multi-Tenant)</h4>
+                                    <p>Decisão de construir isolamento a nível de banco no PostgreSQL gerenciado
+                                        (Supabase), onde cada requisição interceptada valida o domínio/inquilino e
+                                        limita dinamicamente o escopo operacional de leitura/escrita.</p>
+                                </div>
+                                <div class="featured__block-item">
+                                    <h4>Filas e Processamento Assíncrono com Redis</h4>
+                                    <p>Para evitar gargalos na API principal com rotinas pesadas (documentos, relatórios
+                                        financeiros e mensagens instantâneas), configurei filas de tarefas no Redis
+                                        processadas em segundo plano.</p>
+                                </div>
+                                <div class="featured__block-item">
+                                    <h4>Integração de Comunicação via WhatsApp API</h4>
+                                    <p>Criação de Webhooks para processamento assíncrono de notificações transacionais
+                                        diretas no WhatsApp, identificando o morador pelo número e convertendo texto em
+                                        ações no sistema automaticamente.</p>
+                                </div>
+                            </div>
+
+                            <div class="featured__decisions">
+                                <h4 class="featured__section-title">Decisões Arquiteturais Chave</h4>
+                                <ul class="featured__decisions-list">
+                                    <li><strong>NestJS como API Gateway:</strong> Facilita a manutenção através da
+                                        injeção de dependência nativa e divisão modular de serviços.</li>
+                                    <li><strong>Capacitor para Cross-Platform:</strong> Otimização do time-to-market
+                                        aproveitando a base de código do front-end React Web para gerar as versões
+                                        nativas iOS/Android.</li>
+                                    <li><strong>Dockerização Completa:</strong> Containers prontos para ambientes de
+                                        staging e produção, garantindo paridade total de ambiente em desenvolvimento.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="featured__visual">
+                            <div class="featured__img-wrapper">
+                                <img src="assets/img/full/dindom.png" alt="Arquitetura Dindom">
+                            </div>
+                            <div class="featured__img-wrapper">
+                                <img src="assets/img/arquitetura.png" alt="Arquitetura Dindom">
+                            </div>
+                            <div class="featured__stack-tags">
+                                <span class="featured__tag">NestJS</span>
+                                <span class="featured__tag">React.js</span>
+                                <span class="featured__tag">TypeScript</span>
+                                <span class="featured__tag">PostgreSQL</span>
+                                <span class="featured__tag">Supabase</span>
+                                <span class="featured__tag">Redis Cache</span>
+                                <span class="featured__tag">Capacitor Mobile</span>
+                                <span class="featured__tag">Docker Compose</span>
+                                <span class="featured__tag">WhatsApp Business API</span>
+                            </div>
+                            <div
+                                style="background: rgba(255,255,255,0.02); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                                <h4 class="featured__section-title" style="margin-bottom: 0.5rem;">Resultados em
+                                    Engenharia</h4>
+                                <p class="featured__description" style="font-size: var(--small-font-size);">
+                                    • Sistema operando com <strong>alta resiliência</strong> através de separação entre
+                                    API, banco de dados e Workers de fila.<br>
+                                    • Automatização da rotina de avisos reduziu o tempo de suporte das administradoras
+                                    em mais de <strong>60%</strong>.<br>
+                                    • Escalabilidade simplificada: deploy unificado via contêineres Docker padronizados.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== PROJETOS GALLERY ====================-->
         <section class="projects section" id="projects">
-            <h2 class="section__title">Projetos</h2>
-            <span class="section__subtitle">Meus projetos recentes</span>
-
-            <div class="container section__border">
-                <div class="projects__container swiper">
-                    <div class="swiper-wrapper">
-
-                        <!--==================== PROJECTS 1 ====================-->
-                        <div class="projects__content swiper-slide">
-                            <img src="/assets/img/back/servi.png" alt="projects image" class="projects__img"
-                                style="width: 210px;">
-
-                            <div>
-                                <span class="projects__subtitle">FullStack</span>
-                                <h1 class="projects__title">Projetos FullStack</h1>
-
-                                <a href="/projetosFullStack.html" class="projects__button">
-                                    Clique para ver mais<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
+            <h2 class="section__title">Outros Projetos de Engenharia</h2>
+            <span class="section__subtitle">Soluções arquiteturais desenvolvidas para resolver desafios reais</span>
+            <div class="projects__container container section__border">
+                <div class="projects__gallery grid">
+                    <!-- Rastreamento tempo real -->
+                    <div class="project__card card">
+                        <div class="project__img-container">
+                            <img src="assets/img/full/geraciamentoRotas.png" alt="Rastreamento em tempo real">
                         </div>
-                        <!--==================== PROJECTS 4 ====================-->
-                        <div class="projects__content swiper-slide">
-                            <img src="/assets/img/cloud/cloudcompu.png" alt="projects image" class="projects__img"
-                                style="width: 250px;">
-
-                            <div>
-                                <span class="projects__subtitle">Cloud</span>
-                                <h1 class="projects__title">Projetos Cloud</h1>
-
-                                <a href="/projetosCloud.html" class="projects__button">
-                                    Clique para ver mais<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
+                        <div class="project__tech-bar">
+                            <span class="project__tech-tag">Golang</span>
+                            <span class="project__tech-tag">Apache Kafka</span>
+                            <span class="project__tech-tag">Next.js</span>
+                            <span class="project__tech-tag">WebSocket</span>
+                            <span class="project__tech-tag">MongoDB</span>
+                            <span class="project__tech-tag">Docker</span>
                         </div>
-                        <!--==================== PROJECTS 4 ====================-->
-                        <div class="projects__content swiper-slide">
-                            <img src="/assets/img/front/front.png" alt="projects image" class="projects__img"
-                                style="width: 250px;">
-
-                            <div>
-                                <span class="projects__subtitle">Front</span>
-                                <h1 class="projects__title">Projetos Front</h1>
-
-                                <a href="/projetosFront.html" class="projects__button">
-                                    Clique para ver mais<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
+                        <h3 class="project__title">Rastreamento de Veículos em Tempo Real</h3>
+                        <p class="project__description">
+                            Arquitetura orientada a eventos para rastrear coordenadas físicas de frotas geograficamente
+                            dispersas e renderizar rotas instantaneamente em mapas interativos no frontend.
+                        </p>
+                        <ul class="project__engineering-points">
+                            <li>Processamento massivo e assíncrono de localizações geográficas utilizando mensageria
+                                Kafka.</li>
+                            <li>Comunicação duplex leve via WebSockets para evitar overhead de polling HTTP tradicional.
+                            </li>
+                            <li>Simulação e processamento concorrente em Golang para ingestão veloz dos dados de
+                                tráfego.</li>
+                        </ul>
+                        <div class="project__action-links">
+                            <a href="https://github.com/DayMartin/TrajetoRotas/" target="_blank"
+                                class="button button--secondary button--small">
+                                <i class="ri-github-line"></i> Analisar Repositório
+                            </a>
                         </div>
-
-                        <!-- <div class="projects__content swiper-slide">
-                            <img src="/assets/img/front/front.png" alt="projects image" class="projects__img" style="width: 240px;">
-
-                            <div>
-                                <span class="projects__subtitle">Front-end</span>
-                                <h1 class="projects__title">Projetos Front-end</h1>
-
-                                <a href="/projetosFront.html" class="projects__button">
-                                    Clique para ver mais<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
-                        </div>
-                        -->
-
-                        <!--==================== PROJECTS  ====================-->
-                        <!-- <div class="projects__content swiper-slide">
-                            <img src="/assets/img/full/full2.png" alt="projects image" class="projects__img" style="width: 240px;">
-
-                            <div>
-                                <span class="projects__subtitle">FullStack</span>
-                                <h1 class="projects__title">Projetos FullStack</h1>
-
-                                <a href="/projetosFullStack.html" class="projects__button">
-                                    Clique para ver mais<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
-                        </div> -->
-
-                        <!--==================== PROJECTS  ====================-->
-                        <!-- <div class="projects__content swiper-slide">
-                            <img src="/assets/img/devOps/devop.png" alt="projects image" class="projects__img" style="width: 226px;">
-
-                            <div>
-                                <span class="projects__subtitle">DevOps</span>
-                                <h1 class="projects__title">Projetos DevOps</h1>
-
-                                <a href="/projetosDevOps.html" class="projects__button">
-                                    Clique para ver mais<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
-                        </div> -->
-                        <!--==================== PROJECTS  ====================-->
-                        <!-- <div class="projects__content swiper-slide">
-                            <img src="/assets/img/Ia/ia.png" alt="projects image" class="projects__img" style="width: 226px;">
-
-                            <div>
-                                <span class="projects__subtitle">Inteligência Artificial</span>
-                                <h1 class="projects__title">Projetos IA</h1>
-
-                                <a href="/projetosIa.html" class="projects__button">
-                                    Clique para ver mais<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
-                        </div>
-                                               -->
-
-
                     </div>
 
-                    <!-- Swiper arrows -->
-                    <div class="swiper-button-next">
-                        <i class="ri-arrow-right-s-line"></i>
-                    </div>
-                    <div class="swiper-button-prev">
-                        <i class="ri-arrow-left-s-line"></i>
+                    <!-- Sistema Financeiro e Comercial -->
+                    <div class="project__card card">
+                        <div class="project__img-container">
+                            <img src="assets/img/full/est1.png" alt="Sistema Comercial e Financeiro">
+                        </div>
+                        <div class="project__tech-bar">
+                            <span class="project__tech-tag">Node.js</span>
+                            <span class="project__tech-tag">Express</span>
+                            <span class="project__tech-tag">React</span>
+                            <span class="project__tech-tag">MySQL</span>
+                            <span class="project__tech-tag">JWT</span>
+                        </div>
+                        <h3 class="project__title">Sistema Comercial & Controle Financeiro</h3>
+                        <p class="project__description">
+                            Aplicação de gestão corporativa integrada cobrindo de ponta a ponta o fluxo de controle de
+                            estoque, fechamento de caixa, compras, vendas e histórico de relacionamento com clientes.
+                        </p>
+                        <ul class="project__engineering-points">
+                            <li>Autenticação robusta stateless controlada por tokens JWT com controle de expiração.</li>
+                            <li>Modelagem de dados normalizada em MySQL para garantir consistência e atomicidade
+                                transacional.</li>
+                            <li>Segurança e validação detalhada dos dados recebidos no backend antes das transações.
+                            </li>
+                        </ul>
+                        <div class="project__action-links">
+                            <a href="https://github.com/DayMartin/FinanceiroNode/" target="_blank"
+                                class="button button--secondary button--small">
+                                <i class="ri-github-line"></i> Analisar Repositório
+                            </a>
+                        </div>
                     </div>
 
+                    <!-- Integração Fiscal SOAP/XML Legado -->
+                    <div class="project__card card">
+                        <div class="project__img-container">
+                            <img src="assets/img/back/apifinanceiro.png" alt="Integração Fiscal">
+                        </div>
+                        <div class="project__tech-bar">
+                            <span class="project__tech-tag">Node.js</span>
+                            <span class="project__tech-tag">Express</span>
+                            <span class="project__tech-tag">SOAP Protocol</span>
+                            <span class="project__tech-tag">XML Parsing</span>
+                            <span class="project__tech-tag">Axios</span>
+                        </div>
+                        <h3 class="project__title">Integração Fiscal SOAP para Emissão de Notas</h3>
+                        <p class="project__description">
+                            Integração construída e acoplada em sistema legado empresarial na Tizza Tecnologia para
+                            automatizar a emissão de Notas Fiscais diretamente com os servidores da prefeitura.
+                        </p>
+                        <ul class="project__engineering-points">
+                            <li>Consumo e mapeamento de contratos SOAP complexos e parsing bidirecional JSON/XML.</li>
+                            <li>Fluxo resiliente com retry automático e tratamento rigoroso de instabilidade nos
+                                servidores governamentais.</li>
+                            <li>Assinatura digital e criptografia de payloads fiscais em conformidade regulatória.</li>
+                        </ul>
+                        <div class="project__action-links">
+                            <span class="badge badge--pink">Código em Ambiente Corporativo</span>
+                        </div>
+                    </div>
 
-                    <!-- Swiper pagination -->
-                    <div class="swiper-pagination"></div>
+                    <!-- Pipeline CI/CD Jenkins e SonarQube -->
+                    <div class="project__card card">
+                        <div class="project__img-container">
+                            <img src="assets/img/devOps/devOps2.jpeg" alt="Pipeline CI/CD">
+                        </div>
+                        <div class="project__tech-bar">
+                            <span class="project__tech-tag">DevOps</span>
+                            <span class="project__tech-tag">Jenkins</span>
+                            <span class="project__tech-tag">SonarQube</span>
+                            <span class="project__tech-tag">CI/CD Pipeline</span>
+                            <span class="project__tech-tag">Docker</span>
+                        </div>
+                        <h3 class="project__title">Pipeline Automatizado CI/CD & Análise de Qualidade</h3>
+                        <p class="project__description">
+                            Arquitetura de entrega contínua estruturada para avaliar qualidade de código, checar padrões
+                            de cobertura de testes, bugs latentes, code smells e vulnerabilidades de segurança
+                            automaticamente.
+                        </p>
+                        <ul class="project__engineering-points">
+                            <li>Automação de builds e validação estática via SonarQube integrada diretamente às branches
+                                do git.</li>
+                            <li>Garantia de qualidade antes de pipelines de deploy em ambientes de homologação e
+                                produção.</li>
+                            <li>Gerenciamento de credenciais e chaves SSH seguras dentro do ciclo automatizado do
+                                Jenkins.</li>
+                        </ul>
+                        <div class="project__action-links">
+                            <span class="badge badge--cyan">Deploy Corporativo (Tizza)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3.5rem;">
+                    <a href="projetosFullStack.html" class="button button--secondary">
+                        Ver Mais Detalhes de Projetos FullStack <i class="ri-arrow-right-up-line"></i>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!--==================== CERTIFICADOS ====================-->
-        <section class="testimonial section" id="certificados">
-            <h2 class="section__title">Certificados</h2>
-            <span class="section__subtitle"> Meus certificados </span>
+        <!--==================== COMO EU CONSTRUO SOFTWARE ====================-->
+        <section class="github-style section" id="github-section">
+            <h2 class="section__title">Como eu construo software</h2>
+            <span class="section__subtitle">Padrões arquiteturais, qualidade e engenharia do meu código</span>
 
-            <div class="container section__border">
-                <div class="testimonial__container swiper">
-                    <div class="swiper-wrapper">
-
-                        <!--==================== CERTIFICADOS ====================-->
-                        <div class="testimonial__content swiper-slide">
-                            <img src="/assets/img/profissionalCloud.png" alt="projects image" class="projects__img">
-
-
-                            <div>
-                                <a href="https://www.credly.com/earner/earned/badge/df5a6673-7a03-464b-a373-22df7db8f8f4"
-                                    class="projects__button">
-                                    Visite<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
+            <div class="github__container container section__border">
+                <div class="github__dashboard">
+                    <div class="github__header">
+                        <div class="github__user">
+                            <img src="https://github.com/DayMartin.png" alt="DayMartin Github Avatar"
+                                class="github__avatar">
+                            <span class="github__username">DayMartin / @dinahmartins</span>
                         </div>
-                        <!--==================== CERTIFICADOS ====================-->
-                        <div class="testimonial__content swiper-slide">
-                            <img src="/assets/img/copilotCertificado.svg" alt="projects image" class="projects__img">
-
-
-                            <div>
-                                <a href="https://learn.microsoft.com/pt-br/users/santosdinah-8969/credentials/dc887c374b378b6"
-                                    class="projects__button">
-                                    Visite<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
+                        <div class="github__stats">
+                            <span class="github__stat-item"><i class="ri-git-repository-line"></i> Repositórios
+                                Públicos</span>
+                            <span class="github__stat-item"><i class="ri-star-line"></i> Foco em Clean
+                                Architecture</span>
                         </div>
-                        <!--==================== CERTIFICADOS ====================-->
-                        <div class="testimonial__content swiper-slide">
-                            <img src="/assets/img/aws.png" alt="projects image" class="projects__img">
-
-
-                            <div>
-                                <a href="https://www.credly.com/badges/24cad362-9590-42f6-ab48-49dd2c13e995/linked_in_profile"
-                                    class="projects__button">
-                                    Visite<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!--==================== CERTIFICADOS ====================-->
-                        <div class="testimonial__content swiper-slide">
-                            <img src="/assets/img/cloud/google1.png" alt="projects image" class="projects__img">
-
-
-                            <div>
-                                <a href="https://www.cloudskillsboost.google/public_profiles/5d88173c-bc71-4f9e-9f97-12909eece244"
-                                    class="projects__button">
-                                    Visite<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!--====================CERTIFICADOS ====================-->
-                        <div class="testimonial__content swiper-slide">
-                            <img src="/assets/img/cloud/cloud2.png" alt="projects image" class="projects__img">
-
-
-                            <div>
-                                <a href="https://www.cloudskillsboost.google/public_profiles/5d88173c-bc71-4f9e-9f97-12909eece244"
-                                    class="projects__button">
-                                    Visite<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!--====================CERTIFICADOS ====================-->
-                        <div class="testimonial__content swiper-slide">
-                            <img src="/assets/img/cloud/cloud3.png" alt="projects image" class="projects__img">
-
-
-                            <div>
-                                <a href="https://www.cloudskillsboost.google/public_profiles/5d88173c-bc71-4f9e-9f97-12909eece244"
-                                    class="projects__button">
-                                    Visite<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!--==================== CERTIFICADOS ====================-->
-                        <div class="testimonial__content swiper-slide">
-                            <img src="/assets/img/cloud/cloud4.png" alt="projects image" class="projects__img">
-
-
-                            <div>
-                                <a href="https://www.cloudskillsboost.google/public_profiles/5d88173c-bc71-4f9e-9f97-12909eece244"
-                                    class="projects__button">
-                                    Visite<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!--====================CERTIFICADOS ====================-->
-                        <div class="testimonial__content swiper-slide">
-                            <img src="/assets/img/cloud/cloud5.png" alt="projects image" class="projects__img">
-
-
-                            <div>
-                                <a href="https://www.cloudskillsboost.google/public_profiles/5d88173c-bc71-4f9e-9f97-12909eece244"
-                                    class="projects__button">
-                                    Visite<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!--==================== CERTIFICADOS ====================-->
-                        <div class="testimonial__content swiper-slide">
-                            <img src="/assets/img/cloud/cloud6.png" alt="projects image" class="projects__img">
-
-
-                            <div>
-                                <a href="https://www.cloudskillsboost.google/public_profiles/5d88173c-bc71-4f9e-9f97-12909eece244"
-                                    class="projects__button">
-                                    Visite<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!--====================CERTIFICADOS ====================-->
-                        <div class="testimonial__content swiper-slide">
-                            <img src="/assets/img/cloud/cloud7.png" alt="projects image" class="projects__img">
-
-
-                            <div>
-                                <a href="https://www.cloudskillsboost.google/public_profiles/5d88173c-bc71-4f9e-9f97-12909eece244"
-                                    class="projects__button">
-                                    Visite<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!--==================== CERTIFICADOS ====================-->
-                        <div class="testimonial__content swiper-slide">
-                            <img src="/assets/img/cloud/cloud8.png" alt="projects image" class="projects__img">
-
-
-                            <div>
-                                <a href="https://www.cloudskillsboost.google/public_profiles/5d88173c-bc71-4f9e-9f97-12909eece244"
-                                    class="projects__button">
-                                    Visite<i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!--==================== CERTIFICADOS ====================-->
-                        <div class="testimonial__content swiper-slide">
-                            <img src="/assets/img/crt4.jpeg" alt="projects image" class="projects__img">
-
-                            <div>
-                                <p class="projects__button">
-                                    INOVAÇÃO, SUSTENTABILIDADE E COMPETITIVIDADE EMPRESARIAL
-                                </p>
-                            </div>
-                        </div>
-
-                        <!--==================== CERTIFICADOS ====================-->
-                        <div class="testimonial__content swiper-slide">
-                            <img src="/assets/img/crt3.jpeg" alt="projects image" class="projects__img">
-
-                            <div>
-                                <p class="projects__button">
-                                    USABILIDADE, DESENVOLVIMENTO WEB, MOBILE E JOGOS
-                                </p>
-                            </div>
-                        </div>
-                        <!--==================== CERTIFICADOS ====================-->
-                        <div class="testimonial__content swiper-slide">
-                            <img src="/assets/img/crt2.jpeg" alt="projects image" class="projects__img">
-
-
-                            <div>
-                                <p class="projects__button">
-                                    INGLÊS INSTRUMENTAL E PENSAMENTO DIGITAL
-                                </p>
-
-                            </div>
-                        </div>
-
-                        <!--==================== CERTIFICADOS ====================-->
-                        <div class="testimonial__content swiper-slide">
-                            <img src="/assets/img/crt1.jpeg" alt="projects image" class="projects__img">
-
-                            <div>
-                                <p class="projects__button">
-                                    SISTEMAS DISTRIBUÍDOS E MOBILE
-                                </p>
-
-                            </div>
-                        </div>
-
                     </div>
 
-                    <!-- Swiper arrows-->
-                    <div class="swiper-button-next">
-                        <i class="ri-arrow-right-s-line"></i>
+                    <div class="github__repo-grid grid">
+                        <!-- Conecta API -->
+                        <div class="github__repo-card">
+                            <div class="github__repo-title-wrapper">
+                                <i class="ri-git-repository-private-line github__repo-icon"></i>
+                                <h4 class="github__repo-name">conecta-os-backend</h4>
+                            </div>
+                            <p class="github__repo-desc">
+                                API RESTful modularizada construída para suportar ordens de serviço. Implementa divisão
+                                lógica por camadas (Controllers, Services, Repositories) e persistência de dados isolada
+                                de transações.
+                            </p>
+                            <div class="github__repo-meta">
+                                <span class="github__lang">
+                                    <span class="github__lang-dot github__lang-dot--js"></span> JavaScript
+                                </span>
+                                <span>Clean Architecture / MVC</span>
+                            </div>
+                        </div>
+
+                        <!-- Rota Mapeada -->
+                        <div class="github__repo-card">
+                            <div class="github__repo-title-wrapper">
+                                <i class="ri-git-repository-line github__repo-icon"></i>
+                                <h4 class="github__repo-name">RotaMapeada</h4>
+                            </div>
+                            <p class="github__repo-desc">
+                                API Flask que realiza cálculos matemáticos de distância em coordenadas geográficas a
+                                partir de pontos inseridos, implementando validação de payloads com Marshmallow e ORM
+                                com SQLAlchemy.
+                            </p>
+                            <div class="github__repo-meta">
+                                <span class="github__lang">
+                                    <span class="github__lang-dot github__lang-dot--py"></span> Python
+                                </span>
+                                <span>Flask / SQLAlchemy</span>
+                            </div>
+                        </div>
+
+                        <!-- Regressão Linear Machine Learning -->
+                        <div class="github__repo-card">
+                            <div class="github__repo-title-wrapper">
+                                <i class="ri-git-repository-line github__repo-icon"></i>
+                                <h4 class="github__repo-name">RegressaoLinear</h4>
+                            </div>
+                            <p class="github__repo-desc">
+                                Engenharia de dados e modelagem estatística supervisionada para prever emissões de
+                                poluentes com base na cilindrada e peso. Tratamento rigoroso de outliers e métricas de
+                                erro.
+                            </p>
+                            <div class="github__repo-meta">
+                                <span class="github__lang">
+                                    <span class="github__lang-dot github__lang-dot--py"></span> Python / ML
+                                </span>
+                                <span>Scikit-learn / Pandas</span>
+                            </div>
+                        </div>
+
+                        <!-- Java OS -->
+                        <div class="github__repo-card">
+                            <div class="github__repo-title-wrapper">
+                                <i class="ri-git-repository-line github__repo-icon"></i>
+                                <h4 class="github__repo-name">OrdemServicoJava</h4>
+                            </div>
+                            <p class="github__repo-desc">
+                                Estruturação lógica e aplicação estrita de princípios de Orientação a Objetos (SOLID,
+                                Polimorfismo, Encapsulamento) aplicada no gerenciamento operacional de ordens de
+                                serviço.
+                            </p>
+                            <div class="github__repo-meta">
+                                <span class="github__lang">
+                                    <span class="github__lang-dot github__lang-dot--js"></span> Java
+                                </span>
+                                <span>OOP / SOLID Principles</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="swiper-button-prev">
-                        <i class="ri-arrow-left-s-line"></i>
+                </div>
+
+                <div class="specialties__grid grid" style="margin-top: 3rem;">
+                    <div class="card" style="padding: 1.5rem;">
+                        <h4 class="featured__section-title" style="margin-bottom: 0.5rem; color: var(--first-color);">
+                            Padrões de Código</h4>
+                        <p style="font-size: var(--small-font-size); color: var(--text-color);">
+                            Escrevo código alinhado a princípios <strong>SOLID</strong>, design patterns conhecidos e
+                            <strong>Clean Code</strong>. Garanto legibilidade e separação de responsabilidades para
+                            reduzir débitos técnicos na manutenção.
+                        </p>
+                    </div>
+                    <div class="card" style="padding: 1.5rem;">
+                        <h4 class="featured__section-title" style="margin-bottom: 0.5rem; color: var(--second-color);">
+                            Qualidade Integrada</h4>
+                        <p style="font-size: var(--small-font-size); color: var(--text-color);">
+                            Uso testes de integração e unitários como pilar de confiabilidade operacional. Integro
+                            testes em esteiras CI/CD automáticas com SonarQube para barrar desvios de padrão antes do
+                            deploy.
+                        </p>
+                    </div>
+                    <div class="card" style="padding: 1.5rem;">
+                        <h4 class="featured__section-title" style="margin-bottom: 0.5rem; color: var(--accent-color);">
+                            Foco em DevOps</h4>
+                        <p style="font-size: var(--small-font-size); color: var(--text-color);">
+                            Acredito que o ciclo só acaba em produção. Por isso, projeto e escrevo código já pensando na
+                            sua conteinerização Docker, isolamento em nuvem e estratégias transparentes de logging e
+                            monitoramento.
+                        </p>
                     </div>
                 </div>
             </div>
-            <img src="/assets/img/shape-wawes.svg" alt="testimonial image" class="testimonial__img">
+        </section>
+
+        <!--==================== CERTIFICATIONS ====================-->
+        <section class="section" id="certifications">
+            <h2 class="section__title">Certificações e Credenciais</h2>
+            <span class="section__subtitle">Validações oficiais da minha excelência técnica e arquitetural</span>
+            <div class="container section__border">
+                <div class="certifications__grid grid">
+                    <!-- GCP Cloud ACE/Developer -->
+                    <div class="cert__card card">
+                        <img src="assets/img/profissionalCloud.png" alt="Google Cloud Certified"
+                            class="cert__badge-img">
+                        <h3 class="cert__title">Professional Cloud Developer & ACE Courses</h3>
+                        <p class="cert__issuer">Google Cloud</p>
+                        <a href="https://www.credly.com/earner/earned/badge/df5a6673-7a03-464b-a373-22df7db8f8f4"
+                            target="_blank" class="button button--secondary button--small">
+                            Validar Credencial <i class="ri-arrow-right-up-line"></i>
+                        </a>
+                    </div>
+
+                    <!-- AWS Cloud Practitioner -->
+                    <div class="cert__card card">
+                        <img src="assets/img/aws.png" alt="AWS Certified" class="cert__badge-img">
+                        <h3 class="cert__title">AWS Certified Cloud Practitioner</h3>
+                        <p class="cert__issuer">Amazon Web Services</p>
+                        <a href="https://www.credly.com/badges/24cad362-9590-42f6-ab48-49dd2c13e995/linked_in_profile"
+                            target="_blank" class="button button--secondary button--small">
+                            Validar Credencial <i class="ri-arrow-right-up-line"></i>
+                        </a>
+                    </div>
+
+                    <!-- Microsoft Copilot -->
+                    <div class="cert__card card">
+                        <img src="assets/img/copilotCertificado.svg" alt="Microsoft Certified" class="cert__badge-img">
+                        <h3 class="cert__title">Microsoft Applied Skills: Copilot</h3>
+                        <p class="cert__issuer">Microsoft</p>
+                        <a href="https://learn.microsoft.com/pt-br/users/santosdinah-8969/credentials/dc887c374b378b6"
+                            target="_blank" class="button button--secondary button--small">
+                            Validar Credencial <i class="ri-arrow-right-up-line"></i>
+                        </a>
+                    </div>
+
+                    <!-- Google Skills Boost -->
+                    <div class="cert__card card">
+                        <img src="assets/img/cloud/google1.png" alt="Google Cloud Skill Badges" class="cert__badge-img">
+                        <h3 class="cert__title">Google Cloud Infrastructure & Network Badges</h3>
+                        <p class="cert__issuer">Google Cloud Skills Boost</p>
+                        <a href="https://www.cloudskillsboost.google/public_profiles/5d88173c-bc71-4f9e-9f97-12909eece244"
+                            target="_blank" class="button button--secondary button--small">
+                            Validar Perfil <i class="ri-arrow-right-up-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== DIFFERENTIALS (O QUE ME DIFERENCIA) ====================-->
+        <section class="section">
+            <h2 class="section__title">O que me diferencia</h2>
+            <span class="section__subtitle">Por que apostar no meu perfil técnico</span>
+            <div class="container section__border">
+                <div class="diff__grid grid">
+                    <div class="diff__card card">
+                        <span class="diff__number">01</span>
+                        <h3 class="diff__title">Visão Ponta a Ponta (E2E)</h3>
+                        <p class="diff__desc">
+                            Construo produtos completos sozinha. Consigo criar uma interface limpa, conectá-la a APIs
+                            eficientes, desenhar a modelagem relacional dos dados e publicar em infraestrutura escalável
+                            contêinerizada.
+                        </p>
+                    </div>
+
+                    <div class="diff__card card">
+                        <span class="diff__number">02</span>
+                        <h3 class="diff__title">Pilar de Liderança & Autonomia</h3>
+                        <p class="diff__desc">
+                            Possuo forte autonomia de planejamento. Tenho o perfil ideal de Founding Engineer para
+                            empresas focadas em inovação ágil, traduzindo grandes problemas de negócios em códigos e
+                            infraestruturas reais.
+                        </p>
+                    </div>
+
+                    <div class="diff__card card">
+                        <span class="diff__number">03</span>
+                        <h3 class="diff__title">Foco de Engenharia Rigoroso</h3>
+                        <p class="diff__desc">
+                            Não sou apegada a linguagens. Entendo a fundo os pilares fundamentais da engenharia:
+                            concorrência, latência, mensageria distribuída orientada a eventos, isolamento de dados,
+                            observabilidade e cache de memória.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!--==================== CONTACT ====================-->
         <section class="contact section" id="contact">
-            <h2 class="section__title">Contate-me</h2>
-            <span class="section__subtitle">Entrar em contato</span>
+            <h2 class="section__title">Entre em Contato</h2>
+            <span class="section__subtitle">Fale diretamente comigo para novos desafios ou colaborações</span>
 
-            <div class="contact__container container grid section__border">
+            <div class="contact__container container section__border">
                 <div class="contact__content">
-                    <h3 class="contact__title">
-                        <i class="ri-chat-3-line"> Fale comigo </i>
-                    </h3>
-
-                    <div class="contact__info">
-                        <div class="contact__data">
-                            <span class="contact__data-title">Email</span>
-                            <span class="contact__data-info">negociosdinah@gmail.com</span>
-                        </div>
-
-                        <div class="contact__data">
-                            <span class="contact__data-title">Whatsapp</span>
-                            <span class="contact__data-info">+55 11 991745323</span>
-                            <!-- Insert a real number plus contry code-->
-                            <a href="https://wa.me/+5511991745323" class="contact__button">
-                                Me escreva <i class="ri-arrow-right-line"></i>
+                    <div class="contact__info grid">
+                        <div class="contact__data-card card">
+                            <span class="contact__card-icon"><i class="ri-mail-line"></i></span>
+                            <h4 class="contact__card-title">E-mail Comercial</h4>
+                            <p class="contact__card-val">negociosdinah@gmail.com</p>
+                            <a href="mailto:negociosdinah@gmail.com" class="contact__link">
+                                Enviar E-mail <i class="ri-arrow-right-line"></i>
                             </a>
                         </div>
 
-                        <div class="contact__data">
-                            <span class="contact__data-title">Linkedin</span>
-                            <span class="contact__data-info">@dinahmartins</span>
-                            <!-- Insert your brand name or profile-->
-                            <a href="https://www.linkedin.com/in/dinah-martins-8334b1199/" class="contact__button"
-                                target="_blank">
-                                Me escreva <i class="ri-arrow-right-line"></i>
+                        <div class="contact__data-card card">
+                            <span class="contact__card-icon"><i class="ri-whatsapp-line"></i></span>
+                            <h4 class="contact__card-title">WhatsApp</h4>
+                            <p class="contact__card-val">+55 (11) 99174-5323</p>
+                            <a href="https://wa.me/5511991745323" target="_blank" class="contact__link">
+                                Iniciar Conversa <i class="ri-arrow-right-line"></i>
                             </a>
                         </div>
 
+                        <div class="contact__data-card card">
+                            <span class="contact__card-icon"><i class="ri-linkedin-box-line"></i></span>
+                            <h4 class="contact__card-title">LinkedIn</h4>
+                            <p class="contact__card-val">Dinah Martins</p>
+                            <a href="https://www.linkedin.com/in/dinah-martins-8334b1199/" target="_blank"
+                                class="contact__link">
+                                Conectar Perfil <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </section>
     </main>
@@ -785,46 +875,36 @@
     <!--==================== FOOTER ====================-->
     <footer class="footer">
         <div class="footer__container container">
-            <h1 class="footer__title">Dinah Martins</h1>
-            <p> || Back-end Developer | Arquiteta de cloud | </p>
+            <h1 class="footer__logo">Dinah Martins</h1>
+            <p class="footer__subtitle">Software Engineer Senior & Cloud Architecture</p>
 
             <ul class="footer__list">
-                <li>
-                    <a href="#home" class="footer__link">Inicio</a>
-                </li>
-
-                <li>
-                    <a href="#skills" class="footer__link">Habilidades</a>
-                </li>
-
-                <li>
-                    <a href="#projects" class="footer__link">Projetos</a>
-                </li>
-
+                <li><a href="#home" class="footer__link">Início</a></li>
+                <li><a href="#about" class="footer__link">Trajetória</a></li>
+                <li><a href="#specialties" class="footer__link">Especialidades</a></li>
+                <li><a href="#dindom" class="footer__link">Case Destaque</a></li>
+                <li><a href="#projects" class="footer__link">Projetos</a></li>
             </ul>
 
-            <ul class="footer__social">
-                <a href="https://www.linkedin.com/in/dinah-martins-8334b1199/" target="_blank"
-                    class="footer__social-link">
-                    <i class="ri-linkedin-box-line"></i>
-                </a>
-
-                <a href="https://github.com/DayMartin" target="_blank" class="footer__social-link">
-                    <i class="ri-github-line"></i>
-                </a>
-
-                <a href="https://dribbble.com/" target="_blank" class="footer__social-link">
-                    <i class="ri-dribbble-line"></i>
-                </a>
+            <ul class="footer__socials">
+                <li>
+                    <a href="https://www.linkedin.com/in/dinah-martins-8334b1199/" target="_blank"
+                        class="footer__social-link">
+                        <i class="ri-linkedin-box-line"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/DayMartin" target="_blank" class="footer__social-link">
+                        <i class="ri-github-line"></i>
+                    </a>
+                </li>
             </ul>
 
             <span class="footer__copy">
-                &#169; 2024 Todos os direitos reservados
+                &#169; 2026 Dinah Martins. Todos os direitos reservados.
             </span>
-
         </div>
     </footer>
-
 
     <!--========== SCROLL UP ==========-->
     <a href="#" class="scrollup" id="scroll-up">
@@ -832,16 +912,16 @@
     </a>
 
     <!--=============== SCROLLREVEAL ===============-->
-    <script src="/assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/scrollreveal.min.js"></script>
 
     <!--=============== SWIPER JS ===============-->
     <script src="assets/js/swiper-bundle.min.js"></script>
 
-    <!--=============== EMAIL JS ===============-->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!--=============== TRANSLATION JS ===============-->
+    <script src="assets/js/translation.js?v=1.2"></script>
 
     <!--=============== MAIN JS ===============-->
-    <script src="/assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=1.2"></script>
 </body>
 
 </html>

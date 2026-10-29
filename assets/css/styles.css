@@ -443,6 +443,11 @@ body.dark-theme {
   text-align: center;
  }
 
+ /* Centraliza o item que sobra sozinho na última linha */
+ .skills__data:last-child:nth-child(3n+1){
+  grid-column: 2;
+ }
+
  .skills__blob{
   width: 80px;
   height: 100px;
@@ -1016,6 +1021,10 @@ body.dark-theme {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .skills__data:last-child:nth-child(3n+1){
+    grid-column: auto;
+  }
+
   .projects__img{
     width: 200px;
     justify-self: center;
@@ -1040,6 +1049,19 @@ body.dark-theme {
   
   .skills__container{
     justify-content: center;
+  }
+
+  .skills__info{
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .skills__data:last-child:nth-child(3n+1){
+    grid-column: auto;
+  }
+
+  /* Centraliza os dois itens que sobram na última linha */
+  .skills__data:nth-last-child(2):nth-child(4n+1){
+    grid-column: 2;
   }
 
   .projects__container, .testimonial__container{
@@ -1076,14 +1098,12 @@ body.dark-theme {
     padding-right: 0;
   }
 
-  .skills__container,
   .qualification__container,
   .services__container,
   .contact__container{
     grid-template-columns: repeat(2, max-content);
   }
 
-  .skills__container,
   .services__container{
     column-gap: 5rem;
   }
@@ -1247,7 +1267,8 @@ body.dark-theme {
    }
 
    .skills__container{
-    column-gap: 10rem;
+    grid-template-columns: repeat(2, max-content);
+    column-gap: 4rem;
    }
    .skills__title{
     margin-bottom: 3rem;
